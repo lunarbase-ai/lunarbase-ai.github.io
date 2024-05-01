@@ -1,2 +1,4 @@
 # lunarbase-ai.github.io
-The main documentation website of Lunar.
+
+[Lunar](https://lunarbase.ai/) is the analytical intelligence platform for creating AI expert systems.
+

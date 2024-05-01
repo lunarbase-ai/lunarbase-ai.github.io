@@ -1,3 +1,3 @@
-# Welcome to Lunar - the expert analytical intelligence platform
+# Welcome to the __Lunar__verse
 
-Lunar is an artificial intelligence (AI) platform for creating, configuring, automating and coordinating AI analytics processes, from chat-based agents to complex AI-based expert systems. In short, **Lunar** is a platform for orchestrating AI analytics to deliver analytical intelligence.
+Lunar is an artificial intelligence (AI) platform for creating, configuring, automating and coordinating AI analytics processes, from conversational agents to complex AI expert systems. In short, **Lunar** is an AI analytics platform for building and delivering analytical intelligence.
