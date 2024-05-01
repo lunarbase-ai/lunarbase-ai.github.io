@@ -34,25 +34,24 @@ Once Node.js is ready install Lunarflow using:
 
 `lunarflow install command`
 
- The command above will make Lunarflow accessible at http://localhost:8080. To change the address or port number configure them in --CONFIG INSTRUCTIONS HERE--.
+The command above will make Lunarflow accessible at http://localhost:8080. To change the address or port number configure them in --CONFIG INSTRUCTIONS HERE--.
 
+### Lunarverse
 
- ### Lunarverse
+Lunarverse represents the backend logic of the Lunar AI expert platform. It includes core functionalities, orchestration engine (based on [Prefect](https://www.prefect.io/)) and the component library.
 
- Lunarverse represents the backend logic of the Lunar AI expert platform. It includes core functionalities, orchestration engine (based on [Prefect](https://www.prefect.io/)) and the component library.
+#### Installation and configuration
 
- #### Installation and configuration
+Lunarverse is wirtten in Python so all dependencies are managed automatically. It requires
+- [Python 3.9.0+](https://www.python.org/downloads/release/python-390/)
 
- Lunarverse is wirtten in Python so all dependencies are managed automatically. It requires
- - [Python 3.9.0+](https://www.python.org/downloads/release/python-390/)
- 
- Once Python is ready install Lunarverse using:
+Once Python is ready install Lunarverse using:
 
- <details>
- <summary>pip</summary>
- `lunarverse pip install command`
- </details>
- <details>
- <summary>Conda</summary>
- `lunarverse conda install command`
- </details>
+<details>
+<summary>pip</summary>
+`lunarverse pip install command`
+</details>
+<details>
+<summary>Conda</summary>
+`lunarverse conda install command`
+</details>
