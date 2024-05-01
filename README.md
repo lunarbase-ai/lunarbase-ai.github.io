@@ -1,2 +1,2 @@
-# lunar.github.io
-The main documentation website of Lunar
+# lunarbase-ai.github.io
+The main documentation website of Lunar.

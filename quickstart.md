@@ -28,9 +28,9 @@ Lunarflow is the web-based interface that offers efortless interaction with the 
 #### Installation and configuration
 
 Lunarflow requires the following dependencies:
-- [`Node.js 18.19+`](https://nodejs.org/en/blog/release/v18.19.0)
+- [Node.js 18.19+](https://nodejs.org/en/blog/release/v18.19.0)
 
-Once node is ready install Lunarflow using:
+Once Node.js is ready install Lunarflow using:
 
 `lunarflow install command`
 
@@ -39,4 +39,20 @@ Once node is ready install Lunarflow using:
 
  ### Lunarverse
 
+ Lunarverse represents the backend logic of the Lunar AI expert platform. It includes core functionalities, orchestration engine (based on [Prefect](https://www.prefect.io/)) and the component library.
+
+ #### Installation and configuration
+
+ Lunarverse is wirtten in Python so all dependencies are managed automatically. It requires
+ - [Python 3.9.0+](https://www.python.org/downloads/release/python-390/)
  
+ Once Python is ready install Lunarverse using:
+
+ <details>
+ <summary>pip</summary>
+ `lunarverse pip install command`
+ </details>
+ <details>
+ <summary>Conda</summary>
+ `lunarverse conda install command`
+ </details>
