@@ -6,6 +6,7 @@ Components can encapsulate any discrete task in a process, from textual input or
 
 The following is a list of pre-defined Lunar components, together with their descriptions.
 
+<details><summary>Open to view the components library</summary>
 
 | Component name | Component description |
 |:----------|:---------|
@@ -52,7 +53,7 @@ The following is a list of pre-defined Lunar components, together with their des
 | Yahoo Finance API | Connects to [Yahoo Finance](https://finance.yahoo.com/)'s public API and retrieves financial data about companies and their stocks.<br>Input (List[str]): A list of strings of the tickers to the stocks to get data about.<br>Output (Dict[str,Dict[str,Any]]): A dictionary mapping each inputted ticker (str) to the financial data about the corresponding stock in the form of a dictionary of indicators (str) mapped to their values (Any) |
 | Zip file extractor | Extracts files from a ZIP file (.zip file) on the server.<br>Input (str): A string of the server path to the ZIP file to extract.<br>Output (List[str]): A list containing exactly one string which is the server path to the folder of the extracted ZIP file. |
 ___
-
+</details>
 
 
 ## Running components
