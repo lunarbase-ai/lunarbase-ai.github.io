@@ -8,117 +8,51 @@ The following is a list of pre-defined Lunar components, together with their des
 
 
 | Component name | Component description |
-| Azure Open AI prompt | Connects to an [Azure OpenAI](https://azure.microsoft.com/en-us/products/ai-services/openai-service)'s LLM API, runs an inputted natural language prompt (str), and outputs the result as text (str).
-    Input (str): The prompt to provide the LLM with. If needed, the prompt can be inputted manually by the user.
-    Output (str): The answer provided by the LLM to the prompt. |
-| Azure Open AI vectorizer | Encodes inputted texts as numerical vectors (embeddings) using [Azure OpenAI](https://azure.microsoft.com/en-us/products/ai-services/openai-service) models.
-    Input (List[str]): A list of texts to encode. If needed, the list can be inputted manually by the user.
-    Output (List[Dict]): A list of dictionaries -- one for each text in the input. Each dictionary contains the key `text` (str) mapped to the original text (str), and the key `embeddings` (str) mapped to the embedding (List[Union[float, int]]). |
-| Bar chart | Plots a bar chart given a dictionary with numerical values. The output can be linked to a report component.
-    Input (Dict[Any, Union[int, float]]): A dictionary with keys (any data type that can be converted to a str) mapped to numerical values (int or float).
-    Output (Dict): A dictionary with the key `data` (str) mapped to the original input data (Dict[Any, Union[int, float]]), and the key `images` (str) mapped to a list with one element which is the produced image (the bar chart) encoded in base64 on the format `f`data:image/png;base64,{base64.b64encode(binary_buffer_of_PNG.read()).decode()}`` (str). |
+|:----------|:---------|
+| Azure Open AI prompt | Connects to an [Azure OpenAI](https://azure.microsoft.com/en-us/products/ai-services/openai-service)'s LLM API, runs an input natural language prompt (str), and outputs the result as text (str).<br>Input (str): The prompt to provide the LLM with. If needed, the prompt can be inputted manually by the user.<br>Output (str): The answer provided by the LLM to the prompt. |
+| Azure Open AI vectorizer | Encodes input texts as numerical vectors (embeddings) using [Azure OpenAI](https://azure.microsoft.com/en-us/products/ai-services/openai-service) models.<br>Input (List[str]): A list of texts to encode. If needed, the list can be inputted manually by the user.<br>Output (List[Dict]): A list of dictionaries -- one for each text in the input. Each dictionary contains the key `text` (str) mapped to the original text (str), and the key `embeddings` (str) mapped to the embedding (List[Union[float, int]]). |
+| Bar chart | Plots a bar chart given a dictionary with numerical values. The output can be linked to a report component.<br>Input (Dict[Any, Union[int, float]]): A dictionary with keys (any data type that can be converted to a str) mapped to numerical values (int or float).<br>Output (Dict): A dictionary with the key `data` (str) mapped to the original input data (Dict[Any, Union[int, float]]), and the key `images` (str) mapped to a list with one element which is the produced image (the bar chart) encoded in base64 format (str). |
 | Bing Search client | Searches data using [Bing's Search API](https://www.microsoft.com/en-us/bing/apis), starting from an inputted query string. |
-| Csv Upload | Reads a .csv file.
-    Input (File): A File object with a field `path` (str) containing the local path to the local .csv file to read. If needed, the local path can be inputted manually by the user.
-    Output (File): A File object with a field `preview` which has the value pandas.read_csv(file_path, nrows=10).head().to_csv(). This means that the field contains a record formatted pandas dataframe of the data in the inputted .csv file (if we see the .csv file as a m*n matrix M, the format becomes a string `,M(1,1),M(1,2),...,M(1,n) 0,M(2,1),...,M(2,n) 1,M(3,n),... ... M(m,n)`). |
-| Elasticsearch client | Search data in a given [Elasticsearch](https://www.elastic.co/elasticsearch) instance.
-    Input (dict): a dict containing data needed to do elasticsearch.
-    Output (dict): the query response using the python elasticsearch format. |
+| Csv Upload | Reads a .csv file.<br>Input (File): A File object with a field `path` (str) containing the local path to the local .csv file to read. If needed, the local path can be inputted manually by the user.<br>Output (File): A File object with a field `preview` which has the value pandas.read_csv(file_path, nrows=10).head().to_csv(). This means that the field contains a record formatted pandas dataframe of the data in the inputted .csv file. |
+| Elasticsearch client | Search data in a given [Elasticsearch](https://www.elastic.co/elasticsearch) instance.<br>Input (dict): a dict containing data needed to do elasticsearch.<br>Output (dict): the query response using the python elasticsearch format. |
 | Elasticsearch store | Stores data into a given [Elasticsearch](https://www.elastic.co/elasticsearch) instance for future search. |
 | Emails Sender | Send emails |
-| GraphQL Query | Fetches data from a [GraphQL](https://graphql.org/) endpoint.
-    Output (dict): The response for the query |
+| GraphQL Query | Fetches data from a [GraphQL](https://graphql.org/) endpoint.<br>Output (dict): The response for the query |
 | Htmls2Texts | Convert HTMLs to texts |
 | HTML Reports Builder | Build HTML reports |
-| HuggingFace vectorizer | Encode texts using [HuggingFace](https://huggingface.co/)'s models. The output is an embedding.
-    Output (List[dict]): A list of dictionaries containing the original text (str) and the 
-    embeddings (List[Union[float, int]]) for each text item in the input. |
-| Line chart | Plots a line chart given a dictionary with numerical keys and values. The output can be linked to a report component.
-    Input (Dict[Union(int,float), Union(int,float)]): A dictionary with keys (int or float) mapped to numerical values (int or float).
-    Output (Dict): A dictionary with the key `data` (str) mapped to the original input data (Dict[Any, Union[int, float]]), and the key `images` (str) mapped to a list (List[str]) with one element which is the produced image (the line chart) encoded in base64 format. |
-| LlamaIndex Indexing | Index documents from a json dict with Azure OpenAI models in [LlamaIndex](https://www.llamaindex.ai/). 
-                          Please provide a list of keys to be selected in json string format by keys list json.
-                          Please provide a choice from summary or vector or keyword or tree for index name.
-                          Please provide a name for storage index by index persist dir.
-                          Please provide relevant Azure OpenAI details.
-    Output (dict): dictionary containing the keys:,
-    original_json (copy of the input),
-    index_dir (directory where the index is stored),
-    index_name (name of the stored index),
-    keys_list (list of the stored index keys),
-    llm_config (configuration of the LLM),
-    embed_model_config (configuration of the embedding model) |
-| LlamaIndex Querying | Querying from a [LlamaIndex](https://www.llamaindex.ai/) index.
-    Please provide a query prefix if needed.
-    Please indicate whether to do retrieval only by filling retrieval only with True or False.
-    Output (dict):  |
-| Milvus retriever | Queries embeddings from a [Milvus](https://milvus.io/) server.
-    Output (List[dict]): A list of dictionaries containing the original text (str) and the 
-    embeddings (List[Union[float, int]]) for each text item in the input. |
-| Milvus vectorstore | Store embeddings on a [Milvus](https://milvus.io/) server.
-    Output (dict): a dictionary with a single key (stored), containing the number of stored embeddings. |
-| Spacy NER | Performs Named Entity Recognition using [spaCy](https://spacy.io/universe/project/video-spacys-ner-model-alt).
-    Input (str): A text to perform NER on.
-    Output (list[dict[str, str]]): list of dictionaries containing two keys: `text` (str) mapped to the word/text (str), and `label` (str) mapped to the NER label (str). |
-| Natural language to SQL Query | Produces an SQL query based on a natural language query and a tabular data source.
-    Input (str, str): A string containing the natural language query, and a string containing the tabular data source (SQLAlchemy compatible connection string, a file path, or raw CSV data).
-    Output (str): The resulting SQL query that can be used to get data from a database. |
+| HuggingFace vectorizer | Encode texts using [HuggingFace](https://huggingface.co/)'s models. The output is an embedding.<br>Output (List[dict]): A list of dictionaries containing the original text (str) and the embeddings (List[Union[float, int]]) for each text item in the input. |
+| Line chart | Plots a line chart given a dictionary with numerical keys and values. The output can be linked to a report component.<br>Input (Dict[Union(int,float), Union(int,float)]): A dictionary with keys (int or float) mapped to numerical values (int or float).<br>Output (Dict): A dictionary with the key `data` (str) mapped to the original input data (Dict[Any, Union[int, float]]), and the key `images` (str) mapped to a list (List[str]) with one element which is the produced image (the line chart) encoded in base64 format. |
+| LlamaIndex Indexing | Index documents from a json dict with Azure OpenAI models in [LlamaIndex](https://www.llamaindex.ai/).<br>Please provide a list of keys to be selected in json string format by keys list json.<br>Please provide a choice from summary or vector or keyword or tree for index name.<br>Please provide a name for storage index by index persist dir.<br>Please provide relevant Azure OpenAI details.<br>Output (dict): dictionary containing the keys: original_json (copy of the input),index_dir (directory where the index is stored), index_name (name of the stored index), keys_list (list of the stored index keys),llm_config (configuration of the LLM),embed_model_config (configuration of the embedding model) |
+| LlamaIndex Querying | Querying from a [LlamaIndex](https://www.llamaindex.ai/) index.<br>Please provide a query prefix if needed.<br>Please indicate whether to do retrieval only by filling retrieval only with True or False.<br>Output (dict):  |
+| Milvus retriever | Queries embeddings from a [Milvus](https://milvus.io/) server.<br>Output (List[dict]): A list of dictionaries containing the original text (str) and the embeddings (List[Union[float, int]]) for each text item in the input. |
+| Milvus vectorstore | Store embeddings on a [Milvus](https://milvus.io/) server.<br>Output (dict): a dictionary with a single key (stored), containing the number of stored embeddings. |
+| Spacy NER | Performs Named Entity Recognition using [spaCy](https://spacy.io/universe/project/video-spacys-ner-model-alt).<br>Input (str): A text to perform NER on.<br>Output (list[dict[str, str]]): list of dictionaries containing two keys: `text` (str) mapped to the word/text (str), and `label` (str) mapped to the NER label (str). |
+| Natural language to SQL Query | Produces an SQL query based on a natural language query and a tabular data source.<br>Input (str, str): A string containing the natural language query, and a string containing the tabular data source (SQLAlchemy compatible connection string, a file path, or raw CSV data).<br>Output (str): The resulting SQL query that can be used to get data from a database. |
 | Online Spreadsheet | Download and forward content of an online spreadsheet |
-| OpenAI prompt | Connects to [OpenAI](https://openai.com/index/openai-api)'s API, runs natural language prompts and outputs the result as text
-    Output (str): The answer provided by the LLM to the prompt. |
-| OpenAI vectorizer | Uses [OpenAI](https://openai.com/index/openai-api) models to encode texts. The output is the embeddings
-    Output (List[dict]): A list of dictionaries containing the original text (str) and the 
-    embeddings (List[Union[float, int]]) for each text item in the input. |
-| PDF extractor | Extracts title, sections, references, tables and text from a PDF file.
-    Input (str): A string containing the server path of the PDF file to extract from.
-    Output (Dict): A dictionary containing the keys:
-        `title` (str), mapped to the title in the PDF file (str), 
-        `sections` (str), mapped to a dictionary that maps section titles to section contents , 
-        `references` (str), mapped to a list of bibliographic references in the PDF file , 
-        `tables` (str), mapped to a list of record formatted pandas dataframes,
-        `text` (str), mapped to list of strings containing the full document text |
-| Property Getter | Extracts the mapped value of an inputted key/field/attribute in an inputted object/datastructure. It can be the value of a field/attribute in an object, or the mapped value of a key in a dictionary.
-    Input (Any, str): An object and a string with the name of the key/field/attribute to extract the value from. The object can for example be a Dict or a File object. If needed, the key/field/attribute can be inputted manually by the user.
-    Output (Any): The mapped value of the inputted key/field/attribute in the inputted dictionary. |
-| Property Selector | Expose an input object properties for selection.
-    Input (dict, str): a dictionary to extract values from, and a key (str) whose value in the dictionary is to be extracted.
-    Output (dict): a map of the selected properties. |
-| Python coder | Performs customized Python code execution. Outputs the value that the Python variable `result` is set to during the execution of the Python code.
-    Input (str): A string of the Python code to execute.  If needed, the Python code can be inputted manually by the user.
-    Output (Any): The value of the variable `result` in the Python code after execution. |
-| R coder | Performs customized R code execution. It might receive inputs from the context and it 
-    Outputs (Any): anything.outputs the result |
+| OpenAI prompt | Connects to [OpenAI](https://openai.com/index/openai-api)'s API, runs natural language prompts and outputs the result as text.<br>Output (str): The answer provided by the LLM to the prompt. |
+| OpenAI vectorizer | Uses [OpenAI](https://openai.com/index/openai-api) models to encode texts. The output is the embeddings.<br>Output (List[dict]): A list of dictionaries containing the original text (str) and the embeddings (List[Union[float, int]]) for each text item in the input. |
+| PDF extractor | Extracts title, sections, references, tables and text from a PDF file.<br>Input (str): A string containing the server path of the PDF file to extract from.<br>Output (Dict): A dictionary containing the keys:`title` (str), mapped to the title in the PDF file (str), `sections` (str), mapped to a dictionary that maps section titles to section contents , `references` (str), mapped to a list of bibliographic references in the PDF file , `tables` (str), mapped to a list of record formatted pandas dataframes, `text` (str), mapped to list of strings containing the full document text |
+| Property Getter | Extracts the mapped value of an inputted key/field/attribute in an inputted object/datastructure. It can be the value of a field/attribute in an object, or the mapped value of a key in a dictionary.<br>Input (Any, str): An object and a string with the name of the key/field/attribute to extract the value from. The object can for example be a Dict or a File object. If needed, the key/field/attribute can be inputted manually by the user.<br>Output (Any): The mapped value of the inputted key/field/attribute in the inputted dictionary. |
+| Property Selector | Expose an input object properties for selection.<br>Input (dict, str): a dictionary to extract values from, and a key (str) whose value in the dictionary is to be extracted.<br>Output (dict): a map of the selected properties. |
+| Python coder | Performs customized Python code execution. Outputs the value that the Python variable `result` is set to during the execution of the Python code.<br>Input (str): A string of the Python code to execute.  If needed, the Python code can be inputted manually by the user.<br>Output (Any): The value of the variable `result` in the Python code after execution. |
+| R coder | Performs customized R code execution. It might receive inputs from the context and it <br>Outputs (Any): anything.outputs the result |
 | ReACT Agent | Implements [ReACT](https://www.promptingguide.ai/techniques/react) logic. |
-| Report | Creates an editable report from the input it gets.
-    Input (Dict): A dictionary containing data to be included in the report.
-    Output (Dict): A dictionary containing instructions for building the report using the Quill editor format. |
-| SPARQL Query | Fetch data from a [SPARQL](https://www.w3.org/TR/sparql11-query/) endpoint.
-    Input (str): A string that is the SPARQL query.
-    Output (dict): A dictionary containing the response to the SPARQL query in the python SPARQLWrapper library format. |
-| SQL Query | Connects to a SQL database and returns the result of a query
-    Output (str): the query result. |
-| SQL Schema Extractor | Connects to a SQL database and retrieves its schema, i.e., data definition language.
-    Output (dict): a json describing the database schema. |
-| Subworkflow | Component for selecting another workflow
-    Output (Any): the output of the selected workflow. |
-| Table2Text | Takes a CSV formatted table as input and converts it to a text by sentencifying each row.
-    Input (str): A string of the table on CSV format.
-    Output (Dict): A dictionary containing only the key `results` which is mapped to a list of the sentences corresponding to the inputted table rows. |
-| Text Input | Allows the user to input a text (with optional variables) that can be used in other downstream components.
-    Output (str): The input text. |
+| Report | Creates an editable report from the input it gets.<br>Input (Dict): A dictionary containing data to be included in the report.<br>Output (Dict): A dictionary containing instructions for building the report using the Quill editor format. |
+| SPARQL Query | Fetch data from a [SPARQL](https://www.w3.org/TR/sparql11-query/) endpoint.<br>Input (str): A string that is the SPARQL query.<br>Output (dict): A dictionary containing the response to the SPARQL query in the python SPARQLWrapper library format. |
+| SQL Query | Connects to a SQL database and returns the result of a query.<br>Output (str): the query result. |
+| SQL Schema Extractor | Connects to a SQL database and retrieves its schema, i.e., data definition language.<br>Output (dict): a json describing the database schema. |
+| Subworkflow | Component for selecting another workflow<br>Output (Any): the output of the selected workflow. |
+| Table2Text | Takes a CSV formatted table as input and converts it to a text by sentencifying each row.<br>Input (str): A string of the table on CSV format.<br>Output (Dict): A dictionary containing only the key `results` which is mapped to a list of the sentences corresponding to the inputted table rows. |
+| Text Input | Allows the user to input a text (with optional variables) that can be used in other downstream components.<br>Output (str): The input text. |
 | URLs Scraper | Scrape URLs |
 | Wikidata client | Retrieves data from [Wikidata](https://www.wikidata.org/wiki/Wikidata:Introduction) API. |
 | Wikipedia client | Retrieves data from [Wikipedia](https://www.wikipedia.org/) API. |
 | WolfranAlpha client | Obtains a response from the [WolfranAlpha](https://www.wolframalpha.com/) API. |
-| File Upload | Uploads local files to the server.
-    Input (str): A string of the local path of the local file to upload to the server. If needed, tha local path can be inputted manually by the user.
-    Output (str): A string of the server path of the uploaded file. |
-| Yahoo Finance API | Connects to [Yahoo Finance](https://finance.yahoo.com/)'s public API and retrieves financial data about companies and their stocks.
-    Input (List[str]): A list of strings of the tickers to the stocks to get data about.
-    Output (Dict[str,Dict[str,Any]]): A dictionary mapping each inputted ticker (str) to the financial data about the corresponding stock in the form of a dictionary of indicators (str) mapped to their values (Any) |
-| Zip file extractor | Extracts files from a ZIP file (.zip file) on the server.
-    Input (str): A string of the server path to the ZIP file to extract.
-    Output (List[str]): A list containing exactly one string which is the server path to the folder of the extracted ZIP file. |
+| File Upload | Uploads local files to the server.<br>Input (str): A string of the local path of the local file to upload to the server. If needed, tha local path can be inputted manually by the user.<br>Output (str): A string of the server path of the uploaded file. |
+| Yahoo Finance API | Connects to [Yahoo Finance](https://finance.yahoo.com/)'s public API and retrieves financial data about companies and their stocks.<br>Input (List[str]): A list of strings of the tickers to the stocks to get data about.<br>Output (Dict[str,Dict[str,Any]]): A dictionary mapping each inputted ticker (str) to the financial data about the corresponding stock in the form of a dictionary of indicators (str) mapped to their values (Any) |
+| Zip file extractor | Extracts files from a ZIP file (.zip file) on the server.<br>Input (str): A string of the server path to the ZIP file to extract.<br>Output (List[str]): A list containing exactly one string which is the server path to the folder of the extracted ZIP file. |
+___
+
 
 
 ## Running components

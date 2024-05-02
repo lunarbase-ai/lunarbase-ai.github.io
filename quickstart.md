@@ -57,11 +57,11 @@ __poetry__: `lunarverse poetry install command`
 The commands above will make Lunarverse's REST API available on all local interfaces and port `8088`. To change these settings modify the corresponding lines in `[EXAMPLE].env` and rename the file to `.env`. Upon startup Lunarverse will load the environment from `.env` assuming such file exists. The default values for the required variables are in `[EXAMPLE].env`. These include:
 
 
-|Variable name|Default value|Description|
-|:----------|:---------|
+| Variable name | Default value| Description |
+|:----------|:---------|:---------|
 | FLOW_STORAGE | "LOCAL" | The type of storage used by Lunarverse for various data storage needs, e.g., file uploads, workflow persistence, etc. At the moment local and S3 storage are supported |
 | FLOW_STORAGE_BASE_PATH | "/tmp/lunarverse" | The root location of where data will be stored |
 | LUNARVERSE_ADDRESS | "0.0.0.0" | The default API IP address (i.e., defaults to listening on all interfaces) |
 | LUNARVERSE_PORT | 8088 | The default API port |
 | FLOW_ROOT_DIR | "workflows" | The main directory to save workflows. The full path will be `<FLOW_STORAGE_BASE_PATH>/<user_name>/<FLOW_ROOT_DIR>/<workflow_id>`|
-
+---
