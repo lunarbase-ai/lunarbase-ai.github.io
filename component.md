@@ -9,12 +9,13 @@ The following is a list of pre-defined Lunar components, together with their des
 <details><summary>Open to view the components library</summary>
 
 | Component name | Component description |
+
 |:----------|:---------|
 | Azure Open AI prompt | Connects to an [Azure OpenAI](https://azure.microsoft.com/en-us/products/ai-services/openai-service)'s LLM API, runs an input natural language prompt (str), and outputs the result as text (str).<br>Input (str): The prompt to provide the LLM with. If needed, the prompt can be inputted manually by the user.<br>Output (str): The answer provided by the LLM to the prompt. |
 | Azure Open AI vectorizer | Encodes input texts as numerical vectors (embeddings) using [Azure OpenAI](https://azure.microsoft.com/en-us/products/ai-services/openai-service) models.<br>Input (List[str]): A list of texts to encode. If needed, the list can be inputted manually by the user.<br>Output (List[Dict]): A list of dictionaries -- one for each text in the input. Each dictionary contains the key `text` (str) mapped to the original text (str), and the key `embeddings` (str) mapped to the embedding (List[Union[float, int]]). |
 | Bar chart | Plots a bar chart given a dictionary with numerical values. The output can be linked to a report component.<br>Input (Dict[Any, Union[int, float]]): A dictionary with keys (any data type that can be converted to a str) mapped to numerical values (int or float).<br>Output (Dict): A dictionary with the key `data` (str) mapped to the original input data (Dict[Any, Union[int, float]]), and the key `images` (str) mapped to a list with one element which is the produced image (the bar chart) encoded in base64 format (str). |
 | Bing Search client | Searches data using [Bing's Search API](https://www.microsoft.com/en-us/bing/apis), starting from an inputted query string. |
-| Csv Upload | Reads a .csv file.<br>Input (File): A File object with a field `path` (str) containing the local path to the local .csv file to read. If needed, the local path can be inputted manually by the user.<br>Output (File): A File object with a field `preview` which has the value pandas.read_csv(file_path, nrows=10).head().to_csv(). This means that the field contains a record formatted pandas dataframe of the data in the inputted .csv file. |
+| Csv Upload | Reads a .csv file.<br>Input (File): A File object with a field `path` (str) containing the local path to the local .csv file to read. If needed, the local path can be inputted manually by the user.<br>Output (File): A File object including Ta preview of the data. |
 | Elasticsearch client | Search data in a given [Elasticsearch](https://www.elastic.co/elasticsearch) instance.<br>Input (dict): a dict containing data needed to do elasticsearch.<br>Output (dict): the query response using the python elasticsearch format. |
 | Elasticsearch store | Stores data into a given [Elasticsearch](https://www.elastic.co/elasticsearch) instance for future search. |
 | Emails Sender | Send emails |
@@ -65,7 +66,6 @@ Every component will include a `run()` function that defines the running behavio
 
 ___
 Inputs/output received/sent from/to downstream/upstream components requires data type compatibility. Generally, a component _A_ with output of type _T_ could only link to a component _B_ that expects an input of the same type _T_. The only exception to this type compatibility requirement is the case where _A_ outputs a _list_ of multiple instance of _T_. In such a case component _B_ will automatically run in a loop for every instance received from _A_.
-___
 
 
 ## Creating components

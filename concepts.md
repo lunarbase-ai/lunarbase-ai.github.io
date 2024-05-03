@@ -1,6 +1,7 @@
 # The main building blocks of Lunar
 
 |Concept|Definition|
+
 |:----------|:---------|
 | Component | A component is a discrete unit of work in a Lunar process (called a workflow). A component can generally be seen as a programming function with **typed** inputs and one **typed** output. |
 | Workflow | A Lunar workflow can be seen as a directed acyclic graph (DAG) where each node represents a component and each directed edge defines the order and component coordination. A workflow the a central concept in Lunar and the core design pattern for defining intelligent AI agents. |

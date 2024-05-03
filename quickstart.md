@@ -58,6 +58,7 @@ The commands above will make Lunarverse's REST API available on all local interf
 
 
 | Variable name | Default value| Description |
+
 |:----------|:---------|:---------|
 | FLOW_STORAGE | "LOCAL" | The type of storage used by Lunarverse for various data storage needs, e.g., file uploads, workflow persistence, etc. At the moment local and S3 storage are supported |
 | FLOW_STORAGE_BASE_PATH | "/tmp/lunarverse" | The root location of where data will be stored |
