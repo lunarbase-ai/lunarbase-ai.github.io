@@ -7,6 +7,7 @@ Components can encapsulate any discrete task in a process, from textual input or
 The following is a list of pre-defined Lunar components, together with their descriptions.
 
 <details><summary>Open to view the components library</summary>
+
 | Component name | Component description |
 |---|---|
 | Azure Open AI prompt | Connects to an Azure OpenAI's LLM API, runs an input natural language prompt (str), and outputs the result as text (str).<br>Input (str): The prompt to provide the LLM with. If needed, the prompt can be inputted manually by the user.<br>Output (str): The answer provided by the LLM to the prompt. |
