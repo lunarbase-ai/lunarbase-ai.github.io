@@ -32,7 +32,19 @@ Lunarflow requires the following dependencies:
 
 Once Node.js is ready install Lunarflow using:
 
-`lunarflow install command`
+__npm__: `lunarflow npm install command (to be added soon)`
+
+__Docker__: `lunarflow docker install commands (to be added soon)`
+
+__Github__:
+```console
+foo@bar:~$ git clone https://github.com/lunarbase-ai/lunarflow.git
+foo@bar:~$ cd lunarflow
+foo@bar:~$ yarn
+foo@bar:~$ yarn build
+foo@bar:~$ yarn start
+```
+
 
 The command above will make Lunarflow accessible at http://localhost:8080. To change the address or port number configure them in --CONFIG INSTRUCTIONS HERE--.
 
@@ -47,11 +59,24 @@ Lunarverse is wirtten in Python so all dependencies are managed automatically. I
 
 Once Python is ready install Lunarverse using:
 
-__pip__: `lunarverse pip install command`
+__pip__: `lunarverse pip install command (to be added soon)`
 
-__conda__: `lunarverse conda install command`
+__conda__: `lunarverse conda install command (to be added soon)`
 
-__poetry__: `lunarverse poetry install command`
+__poetry__: `lunarverse poetry install command (to be added soon)`
+
+__Docker__: `lunarverse docker install commands (to be added soon)`
+
+__Github__: 
+
+Github installation requires Poetry. Installation instruction can be found on the [official page](https://python-poetry.org/docs/). Once Poetry is installed:
+
+```console
+foo@bar:~$ git clone https://github.com/lunarbase-ai/lunarverse.git
+foo@bar:~$ cd lunarverse
+foo@bar:~$ poetry install
+foo@bar:~$ poetry run python lunarverse/app.py
+```
 
 
 The commands above will make Lunarverse's REST API available on all local interfaces and port `8088`. To change these settings modify the corresponding lines in `[EXAMPLE].env` and rename the file to `.env`. Upon startup Lunarverse will load the environment from `.env` assuming such file exists. The default values for the required variables are in `[EXAMPLE].env`. These include:
