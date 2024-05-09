@@ -1,9 +1,5 @@
-import useBaseUrl from '@docusaurus/useBaseUrl';
-import { useEffect } from 'react';
+import { Redirect } from "@docusaurus/router";
 
 export default function Home() {
-  useEffect(() => {
-    window.location.href = useBaseUrl('/docs/main');
-  }, []);
-  return null;
+  return <Redirect to={'/docs'} />
 }
