@@ -1,4 +1,6 @@
-# The main building blocks of Lunar
+# Concepts
+
+## The main building blocks of Lunar
 
 | Concept | Definition |
 | ----------- | ----------- |
