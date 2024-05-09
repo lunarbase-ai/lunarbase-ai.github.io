@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunklunar_docs=self.webpackChunklunar_docs||[]).push([[583],{6866:(s,u,r)=>{r.r(u),r.d(u,{default:()=>n});var c=r(6347),e=r(4848);function n(){return(0,e.jsx)(c.rd,{to:"/docs"})}}}]);

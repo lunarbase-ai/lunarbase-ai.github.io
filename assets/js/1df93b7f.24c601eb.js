@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunklunar_docs=self.webpackChunklunar_docs||[]).push([[583],{5553:(n,u,e)=>{e.r(u),e.d(u,{default:()=>a});var c=e(5215),s=e(4041);function a(){return(0,s.useEffect)((()=>{window.location.href=(0,c.A)("/docs/main")}),[]),null}}}]);
