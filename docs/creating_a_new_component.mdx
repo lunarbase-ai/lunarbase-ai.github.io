@@ -1,0 +1,59 @@
+import ReactPlayer from 'react-player'
+
+# Creating a new Base Component
+
+## What is a Base Component?
+
+Base Components are the default components. All components in the `component_library` directory will be automatically listed as Base Components and will be available to all users in your deployment.
+
+## Creating a new Base Component
+
+1. Create a new package
+Add your component package to the `lunarverse/components` directory
+
+2. Extend BaseComponent
+Your new component must extend the `BaseComponent` class from `lunarverse.components.base` and you have to set these following mandatory arguments:
+
+| Argument | Type | Description |
+| ----------- | ----------- | ----------- |
+| component_name | `str` | The name of your component |
+| component_description | `str` | The decription of your component. It is important to clearly specify what your component does because this field will be used for auto workflow generation |
+| input_types | a `dict` of `DataType`s | The inputs your component receive. The keys of the dictionary will be interpreted as the input labels and you can check the available data types [here](**!! LINK HERE !!**) |
+| output_type | `DataType` | The output of the component |
+
+You can also specify custom arguments in addition to the mandatory ones. These will be interpreted as component configurations.
+
+Example:
+```
+class MyCustomComponent(
+    BaseComponent,
+    component_name="Component Name",
+    component_description="Describe what the component does",
+    input_types={"Custom JSON": DataType.JSON},
+    output_types=DataType.JSON,
+    custom_argument="Deault custom_argument value",
+    ...
+):
+    ...
+```
+
+### The run method
+When a workflow with your component runs, this is the method called. So you need to implement it.
+
+#### Parameters
+| Name | Type | Description |
+| ----------- | ----------- | ----------- |
+| inputs | `Union[List[ComponentInput], ComponentInput]` | Either a list of component inputs or a component input (if there's only one)
+
+Example:
+```
+def run(self, inputs: ComponentInput, **kwargs: Any):
+    data = dict()
+    images = [self.__class__.plot_bar_chart(inputs.value)]
+    data.update(inputs.value)
+    return {"data": data, "images": images}
+```
+
+## Creating a new component video
+<ReactPlayer playing controls url='/creating-a-new-component.mp4' />
+

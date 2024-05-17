@@ -25,7 +25,14 @@ const sidebars: SidebarsConfig = {
       items: ['index', 'quickstart']
     },
     'component',
-    'concepts'
+    'concepts',
+    {
+      type: 'category',
+      label: 'Tutorials',
+      collapsed: true,
+      collapsible: true,
+      items: ['creating_a_new_component']
+    },
   ],
 };
 
