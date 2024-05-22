@@ -25,6 +25,7 @@ const sidebars: SidebarsConfig = {
       items: ['index', 'quickstart']
     },
     'component',
+    'workflow',
     'concepts',
     {
       type: 'category',
