@@ -6,7 +6,7 @@ A workflow can be interpreted as a directed acyclic graph of components connecte
 
 ## Workflow run
 
-For every workflow run, a new process is created, and it dynamically creates an isolated Python environment with all resources and libraries needed for the execution of every workflow component.
+For every workflow run, a new process is created, and it also dynamically creates an isolated Python environment with all resources and libraries needed for the execution of every workflow component.
 
 ## Workflow attributes
 
