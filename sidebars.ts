@@ -32,7 +32,15 @@ const sidebars: SidebarsConfig = {
       label: 'Tutorials',
       collapsed: true,
       collapsible: true,
-      items: ['creating_a_new_component']
+      items: [
+        'creating_a_new_component',
+        'autocreate',
+        'chat_with_db',
+        'milvus_ingestion',
+        'milvus_rag',
+        'subworkflow',
+        'autocreate'
+      ]
     },
   ],
 };
