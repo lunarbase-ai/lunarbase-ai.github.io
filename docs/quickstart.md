@@ -18,8 +18,8 @@ Let's get started ...
 
 Lunar consists of two applications:
 - The _Lunarflow_ interface - a React-based application that allows GUI-based interaction with Lunar workflows and components.
-- The _Lunarverse_ service - a Python-based system that includes the core functionalities of Lunar.
-    - The _Lunar component library_ - a collection of components used to create workflows or AI expert agents and systems.
+- The _Lunarcore_ service - a Python-based system that includes the core functionalities of Lunar.
+    - The _Lunarverse_ - a collection of components used to create workflows or AI expert agents and systems.
 
 ### Lunarflow
 
@@ -48,9 +48,9 @@ foo@bar:~$ yarn start
 
 The command above will make Lunarflow accessible at http://localhost:8080. To change the address or port number configure them in --CONFIG INSTRUCTIONS HERE--.
 
-### Lunarverse
+### Lunarcore
 
-Lunarverse represents the backend logic of the Lunar AI expert platform. It includes core functionalities, orchestration engine (based on [Prefect](https://www.prefect.io/)) and the component library.
+Lunarcore represents the backend logic of the Lunar AI expert platform. It includes core functionalities, orchestration engine (based on [Prefect](https://www.prefect.io/)).
 
 #### Installation and configuration
 
@@ -63,7 +63,7 @@ __pip__: `lunarverse pip install command (to be added soon)`
 
 __conda__: `lunarverse conda install command (to be added soon)`
 
-__poetry__: `lunarverse poetry install command (to be added soon)`
+__poetry__: `poetry install`
 
 __Docker__: `lunarverse docker install commands (to be added soon)`
 
@@ -72,10 +72,10 @@ __Github__:
 Github installation requires Poetry. Installation instruction can be found on the [official page](https://python-poetry.org/docs/). Once Poetry is installed:
 
 ```console
-foo@bar:~$ git clone https://github.com/lunarbase-ai/lunarverse.git
-foo@bar:~$ cd lunarverse
+foo@bar:~$ git clone https://github.com/lunarbase-labs/lunarcore
+foo@bar:~$ cd lunarcore
 foo@bar:~$ poetry install
-foo@bar:~$ poetry run python lunarverse/app.py
+foo@bar:~$ poetry run python lunarcore/app.py
 ```
 
 
