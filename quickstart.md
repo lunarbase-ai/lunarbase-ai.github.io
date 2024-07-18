@@ -29,6 +29,7 @@ Lunarflow is the web-based interface that offers effortless interaction with the
 
 Lunarflow requires the following dependencies:
 - [Node.js 18.19+](https://nodejs.org/en/blog/release/v18.19.0)
+- Latest version of [Yarn](https://classic.yarnpkg.com/lang/en/docs/install/)
 
 Once Node.js is ready install Lunarflow using:
 
