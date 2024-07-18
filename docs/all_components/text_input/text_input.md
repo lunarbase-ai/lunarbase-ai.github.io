@@ -17,4 +17,4 @@ When there is, please follow the following format.
 
 ## Example
 
-See [Lunar](lunar.lunarbase.ai) for an example of how to use this component in a workflow and much more.
+See [Lunar](https://lunar.lunarbase.ai) for an example of how to use this component in a workflow and much more.
