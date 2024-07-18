@@ -5,7 +5,7 @@ A text-input component enables sending textual inputs to downstream components. 
 As mentioned above, the input consist of a text field that accepts _template variables_.
 
 | input name | input data type | example value   | description |
-| Input      | text            | "Hello {name}!" or "Hello Alex!" | The value can be a simple text or a _templated text_ where the template variable will be filled in as part of a different input|
+| Input      | text            | "Hello \{name\}!" or "Hello Alex!" | The value can be a simple text or a _templated text_ where the template variable will be filled in as part of a different input|
 
 ## Output
 
