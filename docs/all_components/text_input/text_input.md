@@ -13,7 +13,6 @@ The component will output a text - the input value, with the template variables 
 
 ## Configuration
 There is no configuration necessary for this component.
-When there is, please follow the following format.
 
 ## Example
 
