@@ -1,5 +1,5 @@
 # Text-input
-A text-input component enables sending textual inputs to downstream components. The component consists of a text field that accepts _template variables_ (e.g., `{template variable}`). The provided values will represent the output of the component. If the input is a template the temaplte variables will be replaced by their values at the output.
+A text-input component enables sending textual inputs to downstream components. The component consists of a text field that accepts _template variables_ (e.g., `\{template variable\}`). The provided values will represent the output of the component. If the input is a template the template variables will be replaced by their values at the output.
 
 ## Inputs
 As mentioned above, the input consist of a text field that accepts _template variables_.
