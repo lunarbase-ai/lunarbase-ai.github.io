@@ -33,6 +33,13 @@ const sidebars: SidebarsConfig = {
       collapsed: true,
       collapsible: true,
       items: [
+        'hello_lunar',
+        'my_first_workflow',
+        'import_workflow',
+        'export_workflow',
+        'add_api_key',
+        'searching_workflows',
+        'copilot',
         'creating_a_new_component',
         'workflow_tutorials/chat_with_db',
         'workflow_tutorials/csv_chat',
