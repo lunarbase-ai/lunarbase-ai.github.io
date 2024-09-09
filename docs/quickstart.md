@@ -1,8 +1,6 @@
 # Quickstart
 
-Lunar is a low-code AI analytics platform that empowers domain-experts to build, scale and integrate AI algorithms into their analytical processes, from domain-specific algorithms to latest machine learning (ML) and AI methods.
-
-Lunar is an AI analytics platform dedicated to domain-experts and aims to democratize the integration and use of AI advancements, such as large language models (LLMs) in specialized settings, including but not limited to *bio-informatics*, *finance*, *energy*, *news*, etc.
+Lunar is a low-code platform for the construction of expert AI agents. It is designed to enable domain experts to directly build and adapt complex analytical AI-based workflows. Lunar facilitates the integration of generative AI within complex analytical areas, including but not limited to *bioinformatics*, *engineering*, *finance*, *marketing*, *media*, etc.
 
 This quickstart shows how to:
 - Setup Lunar on your local environment
