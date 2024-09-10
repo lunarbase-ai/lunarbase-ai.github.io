@@ -1,76 +1,111 @@
 # Lunar components
 
-Components are distinguishable units of work that combine to create workflows. Components enable the encapsulation of workflow logic in observable units that can be reused across workflows and sub-workflows.
+Components are distinguishable units of work that when combined, create workflows. Components enable the encapsulation of workflow logic into observable units that can be reused across workflows and sub-workflows.
 
-Components can encapsulate any discrete task in a process, from textual input or file reading operations, to field selection, database and API querying or more complex AI/ML algorithms.
+Components can encapsulate any discrete task in a process, from textual input or file reading operations, to field selection, database and API querying or more complex AI/ML models.
 
 The following is a list of pre-defined Lunar components, together with their descriptions.
 
 | Component name | Component description |
 |---|---|
-| [NeXtProt](./all_components/nextprot/nextprot.md) | Fetch data from neXtProt: an on-line knowledge platform on human proteins, such as their function, subcellular location, expression, interactions and role in diseases |
-| [Picture Extractor](./all_components/pic2text/pic2text.md) | Extracts text and math formulas from a picture |
-| [Table2Text](./all_components/table2text/table2text.md) | Takes a CSV formatted table as input and converts it to a text by sentencifying each row |
-| [Wikipedia client](./all_components/wikipedia/wikipedia.md) | Retrieves data from Wikipedia API |
-| [Gene Set Upload](./all_components/read_geneset/read_geneset.md) | Reads a CSV file with genes and outputs a list of the gene names |
-| [SPARQL Query](./all_components/sparql/sparql.md) | Fetch data from a SPARQL endpoint |
-| [Spacy NER](./all_components/ner/ner.md) | Performs Named Entity Recognition (NER) |
-| [Property Getter](./all_components/property_getter/property_getter.md) | Extracts the mapped value of an inputted key/field/attribute in an inputted object/datastructure |
-| [Bar chart](./all_components/bar_chart/bar_chart.md) | Plots a bar chart given a dictionary with numerical values |
-| [LlamaIndex Querying](./all_components/llamaindex_query/llamaindex_query.md) | Querying from LlamaIndex index |
-| [HTML Reports Builder](./all_components/html_reports_builder/html_reports_builder.md) | Builds HTML reports |
-| [Elasticsearch store](./all_components/elasticsearchdb/elasticsearchdb.md) | Stores data in a given Elasticsearch instance for future search |
-| [Pubmed Searcher](./all_components/pubmed_searcher/pubmed_searcher.md) | Search article information from Pubmed by keywords |
-| [Htmls2Texts](./all_components/html2text/html2text.md) | Converts HTMLs to texts |
-| [LlamaIndex Indexing](./all_components/llamaindex_index/llamaindex_index.md) | Index documents from a json dict with Azure OpenAI models within LlamaIndex |
-| [Indra Network Assembler](./all_components/indra_network/indra_network.md) | Retrieve literature related to a set of genes |
-| [LLM prompt](./all_components/llm_prompt/llm_prompt.md) | Connects to a LLM's API, runs natural language prompts and outputs the result as text |
-| [Csv Viewer](./all_components/csv_viewer/csv_viewer.md) | Displays  |
-| [SQL Query](./all_components/sql_query/sql_query.md) | Connects to a SQL database and returns the result of a query |
-| [SQL Schema Extractor](./all_components/sql_schema_extractor/sql_schema_extractor.md) | Connects to a SQL database and retrieves its schema, i |
-| [OpenAI prompt](./all_components/openai_llm/openai_llm.md) | Connects to OpenAI's API, runs natural language prompts and outputs the result as text |
-| [WolframAlpha client](./all_components/wolfram_alpha/wolfram_alpha.md) | Obtains a response from the WolframAlpha API |
-| [Zip file extractor](./all_components/zip/zip.md) | Extracts files from a ZIP file ( |
-| [Online Spreadsheet](./all_components/online_spreadsheet_input/online_spreadsheet_input.md) | Downloads and outputs the content of an online spreadsheet |
-| [Yahoo Finance API](./all_components/yahoo_finance/yahoo_finance.md) | Connects to Yahoo's public API (using Python package yfinance) and retrieves financial data about companies and their stocks |
-| [Azure Open AI vectorizer](./all_components/azure_openai_vectorizer/azure_openai_vectorizer.md) | Encodes inputted texts as numerical vectors (embeddings) using Azure OpenAI models |
-| [Bing Search client](./all_components/bing_search/bing_search.md) | Searches data using Bing Search API |
-| [GraphQL Query](./all_components/graphql/graphql.md) | Fetches data from a GraphQL endpoint |
-| [Text Input](./all_components/text_input/text_input.md) | Allows the user to input a text (potentially with template variables) that can be used in other downstream components |
-| [SBGN Visualizer](./all_components/sbgn_visualizer/sbgn_visualizer.md) | Receives a BSGN XML file and creates a graph visualization |
-| [OpenAI vectorizer](./all_components/openai_vectorizer/openai_vectorizer.md) | Use OpenAI models to encode texts |
-| [Wikidata client](./all_components/wikidata/wikidata.md) | Retrieves data from Wikidata API (a knowledge graph / knowledge base) |
-| [Natural language to SQL Query](./all_components/nl2sql/nl2sql.md) | Produces an SQL query based on a natural language query statement  |
-| [URLs Scraper](./all_components/urls_scraper/urls_scraper.md) | Scrapes URLs |
-| [Online Spreadsheet IO](./all_components/online_spreadsheet_io/online_spreadsheet_io.md) | Save to a online spreadsheet then and forward the content |
-| [Property Selector](./all_components/property_selector/property_selector.md) | Get values of properties (keys) of an inputted dictionary |
-| [Csv Upload](./all_components/csv_extractor/csv_extractor.md) | Reads a CSV file with a header |
-| [Report](./all_components/report/report.md) | Creates an editable report from the input it gets |
-| [UniProt](./all_components/uniprot/uniprot.md) | Fetch data from UniProt: a database of high-quality, comprehensive and freely accessible resource of protein sequence and functional information |
-| [HuggingFace vectorizer](./all_components/huggingface/huggingface.md) | Encode texts using HuggingFace's models |
-| [R coder](./all_components/r_coder/r_coder.md) | Performs customized R code execution |
-| [Python coder](./all_components/python_coder/python_coder.md) | Performs customized Python code execution |
-| [Gemini AI prompt](./all_components/gemini_llm/gemini_llm.md) | Connects to Gemini's API, runs natural language prompts and outputs the result as text |
-| [PROGENy](./all_components/progeny/progeny.md) | PROGENy is the definitive resource for pathways and target genes, with weights for each interaction |
-| [ReACT Agent](./all_components/react_agent/react_agent.md) | Implements ReACT logic |
-| [Azure Open AI prompt](./all_components/azure_openai_llm/azure_openai_llm.md) | Connects to Azure OpenAI's API (an LLM), runs an inputted natural language prompt (str), and output the result as text (str) |
-| [NCI Thesaurus](./all_components/nci_thesaurus/nci_thesaurus.md) | Retrieve biomedical information from the NCI Thesaurus, via SPARQL query |
-| [WikiPathways](./all_components/wikipathways/wikipathways.md) | Fetch data from WikiPathways: an open science platform for biological pathways contributed, updated, and used by the research community |
-| [Milvus vectorstore](./all_components/milvusdb/milvusdb.md) | Store embeddings on a Milvus server |
-| [CIViC](./all_components/civicdb/civicdb.md) | Searches for gene information from the CIViC database |
-| [Elasticsearch client](./all_components/elasticsearch/elasticsearch.md) | Search data in a given Elasticsearch instance |
-| [Milvus retriever](./all_components/milvus/milvus.md) | Queries embeddings from a Milvus server |
-| [Line chart](./all_components/line_chart/line_chart.md) | Plots a line chart given a dictionary with numerical keys and values |
-| [PDF extractor](./all_components/pdf_extractor/pdf_extractor.md) | Extracts title, sections, references, tables and text from PDF files |
-| [Emails Sender](./all_components/emails_sender/emails_sender.md) | Sends emails |
-| [File Upload](./all_components/upload/upload.md) | Uploads local files to the server |
-| [Cytoscape Visualizer](./all_components/cytoscape_visualizer/cytoscape_visualizer.md) | Receives a Cytoscape formatted JSON and creates a graph visualization |
+| Arxiv Extractor | Extracts titles, authors, and latex code from Arxiv papers. |
+| Audio Player | Plays an audio file in base64 format. |
+| Audio2Base64 | Converts an audio file to a base64 string. |
+| Azure Open AI Prompt | Connects to Azure OpenAI's API, runs a natural language prompt, and outputs the generated text. |
+| Azure Open AI Vectorizer | Encodes input texts as numerical vectors (embeddings) using Azure OpenAI models. Outputs embeddings for each input text. |
+| Bar chart | Creates a bar chart visualization based on numerical data, useful for representing categorical data comparisons. |
+| Bing Search | Searches data using the Bing Search API. Returns relevant search results. |
+| CAUC | Converts CAUC data to SQL format. |
+| CIViC | Searches the CIViC database for clinical variant data and gene information relevant to cancer. |
+| Capag2sql | Converts CAPAG data to SQL format. |
+| Causal Discovery Algorithms with a LLM | Runs causal discovery algorithms with the help of an LLM to apply different methods. Outputs include SEM object results and agent output. |
+| Causal Graph Discovery with LLM | Runs causal graph discovery using an LLM and Wikipedia to identify causal relations between variables. Outputs include the causal graph and a log of the process. |
+| Causal Inference with a LLM | Uses an LLM to run causal inference methods (DoWhy and CausalPy), generating results and a log of the step-by-step reasoning. |
+| Causal Structural Equation Model Refinement with LLM | Uses SemoPy to refine and interpret an initial SEM with the help of an LLM. |
+| CausalGraphViewer | Displays JSON serializable graph (node-link format). |
+| Csv Upload | Reads a CSV file with a header and extracts the content for further analysis or use in other components. |
+| Csv Viewer | Displays the contents of a CSV file for easy viewing, providing a structured and organized layout. |
+| Csv2sql | Converts CSV data to SQL format. |
+| Cytoscape Visualizer | Receives a Cytoscape formatted JSON and creates a graph visualization. |
+| Elasticsearch client | Queries Elasticsearch for data, supporting advanced search and filtering operations. |
+| Elasticsearch store | Stores structured data in an Elasticsearch instance for future retrieval and indexing, enabling search functionalities. |
+| Emails Sender | Sends emails. |
+| Excel2Text | Converts the content of an Excel file into plain text, enabling extraction and further manipulation of data. |
+| File Upload | Uploads local files to the server. |
+| Finance2sql | Converts finance data to SQL format. |
+| Finance_api2sql | Converts finance data from API to SQL format. |
+| Gemini AI prompt | Connects to Gemini’s API to run natural language prompts and retrieve AI-generated responses. |
+| Gene Set Upload | Reads a CSV file containing gene data and outputs a list of gene names for downstream analysis. |
+| GraphQL Query | Fetches data from a GraphQL endpoint. Outputs the response for the query in JSON format. |
+| HTML Reports Builder | Generates custom HTML reports based on Jinja2 templates, allowing dynamic content rendering for web reports or dashboards. |
+| Htmls2Texts | Converts HTML content into plain text, stripping away tags and retaining the meaningful text content. |
+| HuggingFace vectorizer | Encodes texts into embeddings using HuggingFace models. Outputs the original text and corresponding embeddings. |
+| Indra Network Assembler | Retrieves scientific literature relevant to a given set of genes, assisting in building gene interaction networks. |
+| Inep2sql | Converts INEP data to SQL format. |
+| JSON Input | Allows the input of a JSON text (potentially with template variables) that can then be used in other downstream components. It can also be used as an output if useful. |
+| Kitai download | Downloads converted sound files using Kitai. |
+| Kitai models | Retrieves available voice models from Kitai. |
+| Kitai splitter | Splits sound files using Kitai. |
+| Kitai splitter_download | Downloads split sound files using Kitai. |
+| Kitai | Voice AI component for sound files and voice models. |
+| LLM prompt | Connects to a language model API to process natural language prompts and returns text-based responses. |
+| Latex Cleaner | Cleans up Latex codes by removing comments and expanding restatables. |
+| Latex Statements Extractor | Extracts definitions, axioms, lemmas, theorems, and corollaries from Latex. |
+| Latex2HTML | Converts Latex codes to HTML with Mathjax. |
+| Line chart | Plots a line chart from numerical data. Outputs the chart as an encoded image and the original input data. |
+| List Index Getter | Extracts elements at given indices from a list. |
+| LlamaIndex Indexing | Indexes documents using Azure OpenAI models within LlamaIndex, allowing efficient document retrieval and query-based interaction. |
+| LlamaIndex Querying | Queries data from an index built with LlamaIndex, supporting custom retrieval configurations and response formatting. |
+| Lyrics Generator | Generates song lyrics from an inputted theme using Azure OpenAI's API. |
+| Milvus Retriever | Retrieves embeddings from a Milvus server for similarity-based searches. |
+| Milvus Vectorstore | Stores embeddings on a Milvus server. Outputs the number of stored embeddings. |
+| NCI Thesaurus | Retrieves biomedical terminology and data from the NCI Thesaurus using SPARQL queries. |
+| Natural language to SQL Query | Converts a natural language query into an SQL query based on a given data definition schema. Outputs the generated SQL query. |
+| NeXtProt | Retrieves data from neXtProt, a comprehensive resource focused on human proteins, including their functions, localization, expression, interactions, and disease relevance. |
+| Online Spreadsheet IO | Reads from and writes data to an online spreadsheet, supporting collaborative data management. |
+| Online Spreadsheet | Downloads and retrieves the content from an online spreadsheet for further processing or analysis. |
+| OpenAI prompt | Connects to OpenAI's API, runs natural language prompts, and outputs the result as text. |
+| OpenAI vectorizer | Encodes text into vectors using OpenAI models for applications like search, clustering, and text analysis. |
+| PDFExtractor | Extracts title, sections, references, tables, and text from PDF files. |
+| PROGENy | Provides data on pathway-target gene interactions with weighted significance for each interaction. |
+| Paper Database Builder | Builds a JSON with data of scientific papers. |
+| Picture Extractor | Extracts text, including mathematical formulas, from images. Useful for digitizing content from photos or scanned documents. |
+| Property Getter | Extracts the value of a specified key or attribute from an object or data structure, enabling easy access to nested properties. |
+| Property Selector | Retrieves the values of specific properties (keys) from a dictionary. |
+| Pubmed Searcher | Searches for biomedical literature on PubMed using keyword queries and filters for year and page length. |
+| Python coder | Executes Python code and returns the result, allowing the use of custom Python scripts. |
+| R coder | Executes R code and returns the result, enabling integration of R scripts into workflows. |
+| Range | Generate a sequence of numbers, starting from 0 by default, and increments by 1 (by default), and stops before a specified number. |
+| ReACT Agent | Implements ReACT logic, which combines reasoning and acting for enhanced decision-making. |
+| Reaper Controller | Controls Reaper DAW by natural language commands. |
+| Remf2sql | Converts REMF data to SQL format. |
+| Report | Creates customizable reports from input data, allowing users to format and edit reports. |
+| SBGN Visualizer | Visualizes biological pathways using the Systems Biology Graphical Notation (SBGN) standard. |
+| SPARQL Query | Executes queries against SPARQL endpoints to retrieve structured data, typically from knowledge bases like Wikidata or the NCI Thesaurus. |
+| SQL Query | Executes SQL queries against a database and retrieves the result, useful for extracting information from relational databases. |
+| SQL Schema Extractor | Connects to a SQL database and retrieves its schema (Data Definition Language). Outputs a JSON describing the database schema. |
+| Sidra2sql | Converts SIDRA data to SQL format. |
+| Sleep | Delays execution for a set time. |
+| Spacy NER | Performs Named Entity Recognition (NER) on text, identifying entities like persons, organizations, dates, and more using Spacy’s NLP framework. |
+| Spleeter_deezer | Splits audio tracks into components using Spleeter. |
+| Subworkflow | Selects and runs another workflow. |
+| Suno Music Downloader | Downloads songs from Suno. |
+| Suno Music Generator | Generates music using Suno. |
+| Table2Text | Converts a CSV-formatted table into a text by generating sentences for each row, facilitating more natural readability of tabular data. |
+| Text Input | Allows for user-provided text input, including template-based inputs for other components to use. |
+| URLs Scraper | Scrapes a list of provided URLs for data. Returns content or errors for each URL in a structured dictionary. |
+| UniProt | Fetches comprehensive protein sequence and functional data from the UniProt database. |
+| WikiPathways | Fetches data from WikiPathways, an open-source platform for community-contributed biological pathways. |
+| Wikidata client | Retrieves data from Wikidata API, returning knowledge/metadata for a given search term. Outputs relevant results in a structured format. |
+| Wikipedia client | Retrieves data from Wikipedia API. |
+| WolframAlpha client | Connects to the WolframAlpha API and retrieves computational or factual information based on the input query. |
+| Yahoo Finance API | Connects to Yahoo's public API using yfinance and retrieves financial data about companies and their stocks. |
+| Zip file extractor | Extracts files from a ZIP archive, returning the paths to the extracted files on the server. |
 
 
 ## Running components
 
-Every component will include a `run()` function that defines the running behavior of the component. This behavior can be triggered by calling the `run()` function programmatically with a component instance (i.e., components are defined as Python objects) or by using the **run** button in the interface, as seen in the image below. At runtime, the component inputs are either provided by the user in the form of text inputs or data inputs (i.e., file upload) or received from downstream components - via in-edges, while the output is printed in the interface as seen blow. 
-**!! Type compatibility rules table HERE!!**
+Every component will include a run() function that defines the running behavior of the component. This behavior can be triggered by calling the run() function programmatically with a component instance (i.e., components are defined as Python objects) or by using the run button in the interface, as seen in the image below. At runtime, the component inputs are either provided by the user in the form of text inputs or data inputs (i.e., file upload) or received from downstream components - via in-edges, while the output is printed in the interface as seen below.
 
 ![Lunar workflow](img/chat_with_db.png)
 
