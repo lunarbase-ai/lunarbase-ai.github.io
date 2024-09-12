@@ -88,3 +88,12 @@ The commands above will make Lunarverse's REST API available on all local interf
 | LUNARVERSE_ADDRESS | "0.0.0.0" | The default API IP address (i.e., defaults to listening on all interfaces) |
 | LUNARVERSE_PORT | 8088 | The default API port |
 | FLOW_ROOT_DIR | "workflows" | The main directory to save workflows. The full path will be `<FLOW_STORAGE_BASE_PATH>/<user_name>/<FLOW_ROOT_DIR>/<workflow_id>`|
+
+
+## Lunar with Docker compose
+
+:::warning
+
+Currently the docker compose setup only work with Linux or WSL2 on Windows
+
+:::
