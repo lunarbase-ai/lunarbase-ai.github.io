@@ -7,7 +7,7 @@ When you visit the Lunar website, the first page you will see is the **Home Page
 
 ## Lunar Home Page
 
-![Lunar Workflow](img/lunar_home_workflows.png)
+![Lunar Workflow](../img/lunar_home_workflows.png)
 
 At the center of the home page, you will find:
 - **Recent Workflows**: A list displaying your most recently created workflows.
@@ -26,10 +26,10 @@ Located on the left side of the home page, the navigation bar allows you to expl
 - **Demo**: Displays example workflows, providing inspiration and guidance on using Lunar's features.
   
 - **Workflows**: This section contains a complete list of all your workflows. You can view, edit, or create new workflows directly from this page.
-  ![Lunar Workflow](img/lunar_workflows_3.png)
+  ![Lunar Workflow](../img/lunar_workflows_3.png)
   
 - **Components**: This page shows all available components, including both core and custom components. From here, you can create new custom components to extend the functionality of your workflows.
-  ![Lunar Components](img/lunar_components.png)
+  ![Lunar Components](../img/lunar_components.png)
 
 ## Conclusion
 

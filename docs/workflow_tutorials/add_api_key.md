@@ -7,13 +7,13 @@ In this guide, we will walk you through the process of adding an LLM API key to 
 To add an API key to a component directly from the website, follow these steps:
 
 1. **Open Workflow Editor**: Open the workflow containing the component. Alternatively, create a new workflow and add the component to it. In this example, we will show how to add an key to the *Azure Open AI prompt* component.
-   ![Workflow Example](img/lunar_generated_workflow.png)
+   ![Workflow Example](../img/lunar_generated_workflow.png)
 
 2. **Access Component Settings**: Click on the gear icon next to the component to open its settings.
-   ![Workflow Component Settings](img/lunar_workflow_component_settings.png)
+   ![Workflow Component Settings](../img/lunar_workflow_component_settings.png)
 
 3. **Enter the API Key**: In the settings panel, input the API key and any other required credentials for the component. Then, click on the `OK` button.
-   ![API Credentials](img/lunar_workflow_api_credentials.png)
+   ![API Credentials](../img/lunar_workflow_api_credentials.png)
 
 ## Adding the API Key via the Backend
 
