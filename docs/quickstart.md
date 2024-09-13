@@ -98,6 +98,12 @@ Currently the docker compose setup only work with Linux or WSL2 on Windows
 
 :::
 
+:::note
+
+Windows users can install WSL2 by following the intructions [here](https://learn.microsoft.com/en-us/windows/wsl/install)
+
+:::
+
 Clone lunarecore and move inside the docker directory
 
 ```bash
