@@ -1,0 +1,47 @@
+import ReactPlayer from 'react-player'
+
+# Importing a Workflow
+
+In this guide, we will walk you through the steps to import a workflow JSON file into **Lunar**. At the end of the guide, you will find a video that demonstrates the entire process.
+
+## Steps to Import a Workflow
+
+### 1. Download the Workflow JSON
+
+- **Option 1: Folder with Workflow JSON**  
+  Download the folder containing the workflow JSON file.
+
+- **Option 2: JSON File Only**  
+  If you only have the JSON file, create a new folder with the same name as the JSON file, and move the file into that folder.
+
+### 2. Open the `.env` File
+
+- Navigate to your **LunarCore** directory and open the `.env` file using your preferred text editor. This file contains the environment variables that control various settings in LunarCore.
+
+### 3. Locate the `FLOW_STORAGE_BASE_PATH`
+
+- In the `.env` file, locate the environment variable `FLOW_STORAGE_BASE_PATH`. This is the path where all your workflows are stored.
+  
+- Navigate to this path in your file system.
+
+### 4. Navigate to Your User Directory
+
+- Within the `FLOW_STORAGE_BASE_PATH`, open the directory that matches your Lunar username.
+
+- Inside this directory, open the folder named `workflows`.
+
+### 5. Move the Workflow Folder
+
+- Move the folder containing your workflow JSON file into the `workflows` directory you just opened.
+
+---
+
+## Video Tutorial
+
+For a step-by-step demonstration, watch the video below:
+
+<ReactPlayer playing controls url='/import_workflow.mp4' />
+
+## Conclusion
+
+After completing these steps, your workflow will be available for use within **Lunar**. You can now open and manage it from the **Workflows** page in the Lunar web interface.
