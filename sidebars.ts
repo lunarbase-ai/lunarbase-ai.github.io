@@ -40,7 +40,7 @@ const sidebars: SidebarsConfig = {
         'workflow_tutorials/add_api_key',
         'workflow_tutorials/searching_workflows',
         'workflow_tutorials/copilot',
-        'workflow_tutorials/creating_a_new_component',
+        'creating_a_new_component',
         'workflow_tutorials/chat_with_db',
         'workflow_tutorials/csv_chat',
         'workflow_tutorials/financial_report',
