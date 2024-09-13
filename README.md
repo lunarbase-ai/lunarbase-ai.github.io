@@ -39,3 +39,11 @@ $ GIT_USER=<Your GitHub username> yarn deploy
 ```
 
 If you are using GitHub pages for hosting, this command is a convenient way to build the website and push to the `gh-pages` branch.
+
+### Local devopmement using Docker
+
+```bash
+docker build . -t lunar_doc && docker run --init -p 3000:3000 lunar_doc
+```
+
+Then open <http://localhost:3000>

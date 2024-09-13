@@ -1,8 +1,6 @@
 # Quickstart
 
-Lunar is a low-code AI analytics platform that empowers domain-experts to build, scale and integrate AI algorithms into their analytical processes, from domain-specific algorithms to latest machine learning (ML) and AI methods.
-
-Lunar is an AI analytics platform dedicated to domain-experts and aims to democratize the integration and use of AI advancements, such as large language models (LLMs) in specialized settings, including but not limited to *bio-informatics*, *finance*, *energy*, *news*, etc.
+Lunar is a low-code platform for the construction of expert AI agents. It is designed to enable domain experts to directly build and adapt complex analytical AI-based workflows. Lunar facilitates the integration of generative AI within complex analytical areas, including but not limited to *bioinformatics*, *engineering*, *finance*, *marketing*, *media*, etc.
 
 This quickstart shows how to:
 - Setup Lunar on your local environment
@@ -15,6 +13,14 @@ Let's get started ...
 
 
 ## Lunar setup
+
+:::note
+
+The following setup works for Mac, Linux and Windows with WSL2
+
+Windows users can install WSL2 by following the intructions [here](https://learn.microsoft.com/en-us/windows/wsl/install)
+
+:::
 
 Lunar consists of two applications:
 - The _Lunarflow_ interface - a React-based application that allows GUI-based interaction with Lunar workflows and components.
@@ -90,3 +96,66 @@ The commands above will make Lunarverse's REST API available on all local interf
 | LUNARVERSE_ADDRESS | "0.0.0.0" | The default API IP address (i.e., defaults to listening on all interfaces) |
 | LUNARVERSE_PORT | 8088 | The default API port |
 | FLOW_ROOT_DIR | "workflows" | The main directory to save workflows. The full path will be `<FLOW_STORAGE_BASE_PATH>/<user_name>/<FLOW_ROOT_DIR>/<workflow_id>`|
+
+
+## Lunar with Docker compose
+
+:::warning
+
+Currently the docker compose setup only work with Linux or WSL2 on Windows
+
+:::
+
+:::note
+
+Windows users can install WSL2 by following the intructions [here](https://learn.microsoft.com/en-us/windows/wsl/install)
+
+:::
+
+Clone lunarecore and move inside the docker directory
+
+```bash
+git clone https://github.com/lunarbase-labs/lunarcore
+cd lunarcore
+cd docker
+```
+
+:::tip
+
+You can install git from [here](https://github.com/git-guides/install-git) if it's not already available on your system.
+
+:::
+
+Edit the file `lunarflow_env.env` then add your `GOOGLE_CLIENT_ID` and `GOOGLE_CLIENT_SECRET`.
+
+:::note
+
+`GOOGLE_CLIENT_ID` and `GOOGLE_CLIENT_SECRET` will be optional soon, but in the meantime, you can generate them by configuring a project [here](https://developers.google.com/identity/oauth2/web/guides/get-google-api-clientid?hl=fr)
+
+:::
+
+Run the `prepare.py` script
+
+```bash
+python prepare.py
+```
+
+:::tip
+
+You can install python from [here](https://wiki.python.org/moin/BeginnersGuide/Download) if it's not already available on your system.
+
+:::
+
+Build and run the lunarbase docker compose
+
+```bash
+docker compose build && docker compose up
+```
+
+:::tip
+
+You can install docker with the compose plugin from [here](https://docs.docker.com/compose/install/) if it's not already available on your system.
+
+:::
+
+Then click on this [link](http://localhost:8080)

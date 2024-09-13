@@ -1,0 +1,43 @@
+import ReactPlayer from 'react-player'
+
+# Exporting a Workflow
+
+In this guide, we will walk you through the steps to export a workflow from **Lunar**. At the end of the guide, you will find a video that demonstrates the entire process.
+
+## Steps to Export a Workflow
+
+### 1. Find the Workflow ID
+
+- Open the workflow you want to export in the **Lunar** web interface.
+  
+- Once the workflow is open, look at the URL in your browser. The **workflow ID** is the last part of the URL. Copy or note this ID, as it will help you locate the workflow on your system.
+
+### 2. Locate the Workflow on Your System
+
+- Navigate to the directory where your workflows are stored. To find this location, check the `FLOW_STORAGE_BASE_PATH` environment variable in your **LunarCore** `.env` file.
+
+- Inside this path, open the directory with your Lunar username, then go to the `workflows` folder.
+
+### 3. Find the Workflow Folder
+
+- In the `workflows` directory, locate the folder that corresponds to the workflow ID you found in Step 1. Each workflow is stored in its own folder, named according to the workflow ID.
+
+### 4. Copy the Workflow Folder
+
+- Copy the entire folder that contains the workflow JSON file and any related assets.
+
+### 5. Export the Folder
+
+- Move or save the copied folder to your desired location. You can now share the workflow folder, upload it to a repository, or back it up for future use.
+
+---
+
+## Video Tutorial
+
+For a step-by-step demonstration, watch the video below:
+
+<ReactPlayer playing controls url='/export_workflow.mp4' />
+
+## Conclusion
+
+By following these steps, you will have successfully exported your workflow from **Lunar**. The workflow folder can now be imported into another instance of LunarCore or shared with others.

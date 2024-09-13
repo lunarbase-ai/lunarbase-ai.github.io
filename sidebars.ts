@@ -33,6 +33,13 @@ const sidebars: SidebarsConfig = {
       collapsed: true,
       collapsible: true,
       items: [
+        'workflow_tutorials/hello_lunar',
+        'workflow_tutorials/my_first_workflow',
+        'workflow_tutorials/import_workflow',
+        'workflow_tutorials/export_workflow',
+        'workflow_tutorials/add_api_key',
+        'workflow_tutorials/searching_workflows',
+        'workflow_tutorials/copilot',
         'creating_a_new_component',
         'workflow_tutorials/chat_with_db',
         'workflow_tutorials/csv_chat',
@@ -42,6 +49,18 @@ const sidebars: SidebarsConfig = {
         'workflow_tutorials/subworkflow',
         'workflow_tutorials/autocreate',
       ]
+    },
+    {
+      type: 'category',
+      label: 'Contributions Gallery',
+      collapsed: true,
+      collapsible: true,
+      items: [
+        'contributions_gallery/ai_music',
+        'contributions_gallery/financial_report',
+        'contributions_gallery/gene_analysis',
+        'contributions_gallery/paper_extraction',
+      ],
     },
   ],
 };
