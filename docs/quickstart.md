@@ -14,6 +14,14 @@ Let's get started ...
 
 ## Lunar setup
 
+:::note
+
+The following setup works for Mac, Linux and Windows with WSL2
+
+Windows users can install WSL2 by following the intructions [here](https://learn.microsoft.com/en-us/windows/wsl/install)
+
+:::
+
 Lunar consists of two applications:
 - The _Lunarflow_ interface - a React-based application that allows GUI-based interaction with Lunar workflows and components.
 - The _Lunarcore_ service - a Python-based system that includes the core functionalities of Lunar.
