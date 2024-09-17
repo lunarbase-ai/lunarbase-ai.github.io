@@ -124,7 +124,7 @@ const config: Config = {
           ],
         },
       ],
-      copyright: `INFERENCE3 DESENVOLVIMENTO DE SISTEMAS LTDA (Lunar) - 45.207.490/0001-30 - © 2022 - 2024`,
+      copyright: `Lunar © 2022 - 2024`,
     },
     prism: {
       theme: prismThemes.github,

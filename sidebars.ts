@@ -41,13 +41,8 @@ const sidebars: SidebarsConfig = {
         'workflow_tutorials/searching_workflows',
         'workflow_tutorials/copilot',
         'creating_a_new_component',
-        'workflow_tutorials/chat_with_db',
         'workflow_tutorials/csv_chat',
-        'workflow_tutorials/financial_report',
-        'workflow_tutorials/milvus_ingestion',
         'workflow_tutorials/milvus_rag',
-        'workflow_tutorials/subworkflow',
-        'workflow_tutorials/autocreate',
       ]
     },
     {
@@ -56,9 +51,9 @@ const sidebars: SidebarsConfig = {
       collapsed: true,
       collapsible: true,
       items: [
-        'contributions_gallery/ai_music',
         'contributions_gallery/financial_report',
         'contributions_gallery/gene_analysis',
+        'contributions_gallery/ai_music',
         'contributions_gallery/paper_extraction',
       ],
     },
