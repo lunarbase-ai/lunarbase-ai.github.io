@@ -18,7 +18,7 @@ Let's get started ...
 
 The following setup works for Mac, Linux and Windows with WSL2
 
-Windows users can install WSL2 by following the intructions [here](https://learn.microsoft.com/en-us/windows/wsl/install)
+Windows users can install WSL2 by following the instructions [here](https://learn.microsoft.com/en-us/windows/wsl/install)
 
 :::
 
@@ -82,11 +82,11 @@ Github installation requires Poetry. Installation instruction can be found on th
 foo@bar:~$ git clone https://github.com/lunarbase-labs/lunarcore
 foo@bar:~$ cd lunarcore
 foo@bar:~$ poetry install
-foo@bar:~$ poetry run python lunarcore/app.py
+foo@bar:~$ poetry run lunarcore start
 ```
 
 
-The commands above will make Lunarverse's REST API available on all local interfaces and port `8088`. To change these settings modify the corresponding lines in `[EXAMPLE].env` and rename the file to `.env`. Upon startup Lunarverse will load the environment from `.env` assuming such file exists. The default values for the required variables are in `[EXAMPLE].env`. These include:
+The commands above will make Lunarcore's REST API available on all local interfaces and port `8088`. To change these settings modify the corresponding lines in `[EXAMPLE].env` and rename the file to `.env`. Upon startup Lunarverse will load the environment from `.env` assuming such file exists. The default values for the required variables are in `[EXAMPLE].env`. These include:
 
 
 | Variable name | Default value| Description |
