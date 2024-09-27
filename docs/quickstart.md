@@ -22,10 +22,10 @@ Windows users can install WSL2 by following the instructions [here](https://lear
 
 :::
 
-Lunar consists of two applications:
-- The _Lunarflow_ interface - a React-based application that allows GUI-based interaction with Lunar workflows and components.
-- The _Lunarcore_ service - a Python-based system that includes the core functionalities of Lunar.
-    - The _Lunarverse_ - a collection of components used to create workflows or AI expert agents and systems.
+Lunar consists of three parts:
+- The _Lunarcore_ service - the core of Lunar, a Python-based service that includes the backend functionalities.
+- The _Lunarverse_ - Lunar is organised as a plugin-architecture and this is the collection of components available to create workflows or AI expert systems.
+- The _Lunarflow_ interface - a React-based application that allows GUI-based interaction with Lunar workflows their components.
 
 ### Lunarflow
 
