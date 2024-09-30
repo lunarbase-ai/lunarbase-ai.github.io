@@ -1,6 +1,6 @@
 # Quickstart
 
-Lunar is a low-code platform for the construction of expert AI agents. It is designed to enable domain experts to directly build and adapt complex analytical AI-based workflows. Lunar facilitates the integration of generative AI within complex analytical areas, including but not limited to *bioinformatics*, *engineering*, *finance*, *marketing*, *media*, etc.
+Lunar is a low-code platform for the construction of **AI expert agents and systems**. It is designed to enable domain experts to directly build and adapt complex analytical AI-based workflows to approach domain-specific problems. Lunar facilitates the integration of generative AI within complex analytical areas, including but not limited to *bioinformatics*, *engineering*, *finance*, *marketing*, *media*, etc.
 
 This quickstart shows how to:
 - Setup Lunar on your local environment
@@ -12,7 +12,7 @@ This quickstart shows how to:
 Let's get started ...
 
 
-## Lunar setup
+## Local Lunar setup
 
 :::note
 
@@ -24,69 +24,47 @@ Windows users can install WSL2 by following the instructions [here](https://lear
 
 Lunar consists of three parts:
 - The _Lunarcore_ service - the core of Lunar, a Python-based service that includes the backend functionalities.
-- The _Lunarverse_ - Lunar is organised as a plugin-architecture and this is the collection of components available to create workflows or AI expert systems.
-- The _Lunarflow_ interface - a React-based application that allows GUI-based interaction with Lunar workflows their components.
+- The _Lunarverse_ - Lunar is organized as a plugin-architecture and the [Lunarverse](https://github.com/lunarbase-labs/lunarverse) represents a collection of components (or plugins) available to create workflows and AI expert systems.
+- The _Lunarflow_ interface - a React-based application that allows GUI-based interaction with Lunar workflows and their components.
+
+The following is an overview of Lunar's directory structure denoting the frontend and backend components. The component library, Lunarverse, is organized in its own Github repository located at https://github.com/lunarbase-labs/lunarverse. 
+
+lunar
+├── LICENSES
+├── README.md
+├── lunarcore
+├── lunarflow
+└── scripts
 
 ### Lunarflow
 
 Lunarflow is the web-based interface that offers effortless interaction with the universe of Lunar components. 
 
-#### Installation and configuration
+#### Local installation and configuration
 
 Lunarflow requires the following dependencies:
-- [Node.js 18.19+](https://nodejs.org/en/blog/release/v18.19.0)
-- Latest version of [Yarn](https://classic.yarnpkg.com/lang/en/docs/install/)
+- [Node.js >=18.19 and <20.0](https://nodejs.org/en/blog/release/v18.19.0)
 
-Once Node.js is ready install Lunarflow using:
+Once Node.js is ready the easiest way to install Lunarflow locally is using the provided installation scripts from the **scripts** directory (see above):
 
-__npm__: `lunarflow npm install command (to be added soon)`
+__lunarflow_unix_install.sh__: `source lunarflow_unix_install.sh` 
 
-__Docker__: `lunarflow docker install commands (to be added soon)`
-
-__Github__:
-```console
-foo@bar:~$ git clone https://github.com/lunarbase-ai/lunarflow.git
-foo@bar:~$ cd lunarflow
-foo@bar:~$ yarn
-foo@bar:~$ yarn build
-foo@bar:~$ yarn start
-```
-
-
-The command above will make Lunarflow accessible at http://localhost:8080. To change the address or port number configure them in --CONFIG INSTRUCTIONS HERE--.
+The command above will install and make Lunarflow accessible at http://localhost:8080. To change the address or port number configure them in --CONFIG INSTRUCTIONS HERE--.
 
 ### Lunarcore
 
-Lunarcore represents the backend logic of the Lunar AI expert platform. It includes core functionalities, orchestration engine (based on [Prefect](https://www.prefect.io/)).
+Lunarcore represents the backend logic of the Lunar AI expert platform. It includes core functionalities and orchestration engine (based on [Prefect](https://www.prefect.io/)).
 
-#### Installation and configuration
+#### Local installation and configuration
 
-Lunarverse is wirtten in Python so all dependencies are managed automatically. It requires
+Lunarverse is written in Python so all dependencies are managed automatically. It requires
 - [Python 3.9.0+](https://www.python.org/downloads/release/python-390/)
 
-Once Python is ready install Lunarverse using:
+Once Python is installed the easiest way to install Lunarcore locally is using the provided installation scripts from the **scripts** directory (see above):
 
-__pip__: `lunarverse pip install command (to be added soon)`
+__lunarcore_unix_install.sh__: `source lunarcore_unix_install.sh` 
 
-__conda__: `lunarverse conda install command (to be added soon)`
-
-__poetry__: `poetry install`
-
-__Docker__: `lunarverse docker install commands (to be added soon)`
-
-__Github__: 
-
-Github installation requires Poetry. Installation instruction can be found on the [official page](https://python-poetry.org/docs/). Once Poetry is installed:
-
-```console
-foo@bar:~$ git clone https://github.com/lunarbase-labs/lunarcore
-foo@bar:~$ cd lunarcore
-foo@bar:~$ poetry install
-foo@bar:~$ poetry run lunarcore start
-```
-
-
-The commands above will make Lunarcore's REST API available on all local interfaces and port `8088`. To change these settings modify the corresponding lines in `[EXAMPLE].env` and rename the file to `.env`. Upon startup Lunarverse will load the environment from `.env` assuming such file exists. The default values for the required variables are in `[EXAMPLE].env`. These include:
+The commands above will make Lunarcore's REST API available on all local interfaces and port `8088`. To change these settings modify the corresponding lines in `[EXAMPLE].env` and rename the file to `.env`. Upon startup Lunarcore will load the environment from `.env` assuming such file exists. The default values for the required variables are in `[EXAMPLE].env`. These include:
 
 
 | Variable name | Default value| Description |
