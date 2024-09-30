@@ -30,10 +30,15 @@ Lunar consists of three parts:
 The following is an overview of Lunar's directory structure denoting the frontend and backend components. The component library, Lunarverse, is organized in its own Github repository located at https://github.com/lunarbase-labs/lunarverse. 
 
 lunar
+
 ├── LICENSES
+
 ├── README.md
+
 ├── lunarcore
+
 ├── lunarflow
+
 └── scripts
 
 ### Lunarflow
