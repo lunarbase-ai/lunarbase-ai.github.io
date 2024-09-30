@@ -48,7 +48,7 @@ Lunarflow is the web-based interface that offers effortless interaction with the
 #### Local installation and configuration
 
 Lunarflow requires the following dependencies:
-- [Node.js >=18.19 and <20.0](https://nodejs.org/en/blog/release/v18.19.0)
+- [Node.js between 18.19 and 20.0](https://nodejs.org/en/blog/release/v18.19.0)
 
 Once Node.js is ready the easiest way to install Lunarflow locally is using the provided installation scripts from the **scripts** directory (see above):
 
