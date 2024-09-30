@@ -54,7 +54,7 @@ Once Node.js is ready the easiest way to install Lunarflow locally is using the 
 
 __lunarflow_unix_install.sh__: `source lunarflow_unix_install.sh` 
 
-The command above will install and make Lunarflow accessible at http://localhost:8080. To change the address or port number configure, navigate to `lunar/lunarflow/` and open `.env` (or create a new `.env` file by copying `[EXAMPLE].env`). Modify the corresponding lines and save the file. Upon startup Lunarflow will load the environment from `.env` assuming such file exists. The default values for the required variables in `[EXAMPLE].env` include:
+The command above will install and make Lunarflow accessible at http://localhost:8080. To change the address or port number configuration, navigate to `lunar/lunarflow/` and open `.env` (or create a new `.env` file by copying `[EXAMPLE].env`). Modify the corresponding lines and save the file. Upon startup Lunarflow will load the environment from `.env` assuming such file exists. The default values for the required variables in `.env` include:
 
 | Variable name | Default value| Description |
 | ----------- | ----------- | ----------- |
@@ -63,6 +63,7 @@ The command above will install and make Lunarflow accessible at http://localhost
 | NEXTAUTH_URL | http://localhost:8080 | The callback URL for NextAuth authentication, normally pointing to the frontend application's host. |
 
 The `.env` file should also set `GOOGLE_CLIENT_ID` and `GOOGLE_CLIENT_SECRET`. These will be optional soon, but in the meantime, you can generate them by configuring a project [here](https://developers.google.com/identity/oauth2/web/guides/get-google-api-clientid?hl=fr).
+
 
 ### Lunarcore
 
