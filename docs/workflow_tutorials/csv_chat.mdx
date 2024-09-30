@@ -1,4 +1,47 @@
 import ReactPlayer from 'react-player'
 
-# Building an Agent which Interprets Table Data
-<ReactPlayer playing controls url='/CSV_chat.mp4' />
+import csvAgentPythonCoder from '../img/csv_agent_pythoncoder.png';
+import csvAgentLLM from '../img/csv_agent_llm.png';
+import csvAgentOutput from '../img/csv_agent_output.png';
+import csvAgentSave from '../img/csv_agent_save.png';
+import csvAgentUploadReadAsk from '../img/csv_agent_upload_read_ask.png';
+import csvAgentUploadRead from '../img/csv_agent_upload_read.png';
+import csvAgentUpload from '../img/csv_agent_upload.png';
+
+# Building an Agent for Tabular Data
+
+As a simple entry point tutorial, we will create an agent that can answer questions from tabular data.
+
+We start with creating a component to upload files, which is the end-point for entering the specific CSV file used in this example (list of films and their ratings).
+
+<div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+<img src={csvAgentUpload} alt="Lunar Workflow" width="320" height="auto" />
+</div>
+
+We then connect the CSV component to a Python Coder component, which gets the serialized content of the file, with the associated attributes and values.
+
+<div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+<img src={csvAgentPythonCoder} alt="Lunar Workflow" width="540" height="auto" />
+</div>
+
+We name this Python coder component ‘Read file content’.
+
+<div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+<img src={csvAgentUploadRead} alt="Lunar Workflow" width="540" height="auto" />
+</div>
+
+With access to the content in hand, we add an LLM component (in this case, a specific *Azure API component*, but any LLM will do), where we can specify a query prompt. Here one could define a prompt with free queries, however, to exemplify the notion of input variables in Lunar (here \{imdb data\} and \{movie\}), we link the output of the previous component as a part of the context creation process.
+
+<div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+    <img src={csvAgentLLM} alt="Lunar Workflow" width="320" height="auto" />
+</div>
+
+You are now ready to run your workflow:
+<div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+    <img src={csvAgentSave} alt="Lunar Workflow" width="320" height="auto" />
+</div>
+
+Where you can see the output at the bottom of the component.
+<div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+    <img src={csvAgentOutput} alt="Lunar Workflow" width="400" height="auto" />
+</div>
