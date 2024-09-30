@@ -17,6 +17,7 @@ We start with creating a component to upload files, which is the end-point for e
 <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
 <img src={csvAgentUpload} alt="Lunar Workflow" width="320" height="auto" />
 </div>
+<br/>
 
 We then connect the CSV component to a Python Coder component, which gets the serialized content of the file, with the associated attributes and values.
 
@@ -29,19 +30,23 @@ We name this Python coder component ‘Read file content’.
 <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
 <img src={csvAgentUploadRead} alt="Lunar Workflow" width="540" height="auto" />
 </div>
+<br/>
 
 With access to the content in hand, we add an LLM component (in this case, a specific *Azure API component*, but any LLM will do), where we can specify a query prompt. Here one could define a prompt with free queries, however, to exemplify the notion of input variables in Lunar (here \{imdb data\} and \{movie\}), we link the output of the previous component as a part of the context creation process.
 
 <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
     <img src={csvAgentLLM} alt="Lunar Workflow" width="320" height="auto" />
 </div>
+<br/>
 
 You are now ready to run your workflow:
 <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
     <img src={csvAgentSave} alt="Lunar Workflow" width="320" height="auto" />
 </div>
+<br/>
 
 Where you can see the output at the bottom of the component.
 <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
     <img src={csvAgentOutput} alt="Lunar Workflow" width="400" height="auto" />
 </div>
+<br/>
