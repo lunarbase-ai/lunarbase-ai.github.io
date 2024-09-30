@@ -42,7 +42,6 @@ const sidebars: SidebarsConfig = {
         'workflow_tutorials/copilot',
         'creating_a_new_component',
         'workflow_tutorials/csv_chat',
-        'workflow_tutorials/milvus_rag',
       ]
     },
     {
