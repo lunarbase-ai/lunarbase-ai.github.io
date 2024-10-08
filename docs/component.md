@@ -1,10 +1,11 @@
 # Lunar components
 
-Components are distinguishable units of work that when combined, create workflows. Components enable the encapsulation of workflow logic into observable units that can be reused across workflows and sub-workflows.
+Components are the fundamental building blocks of workflows in the Lunar system. Each component represents a distinguishable unit of work that can be combined with other components to create complex workflows. By encapsulating specific tasks into reusable and observable units, components enable modular and maintainable workflow design.
 
-Components can encapsulate any discrete task in a process, from textual input or file reading operations, to field selection, database and API querying or more complex AI/ML models.
+Components can handle a wide range of tasks, from simple operations like reading text or files, to more complex processes such as database queries, API interactions, and advanced AI/ML model executions. This modular approach allows for flexibility and reusability, making it easier to construct and manage workflows.
 
-The following is a list of pre-defined Lunar components, together with their descriptions.
+Lunar have a wide range of first-party components tested and ready for you to use in your workflows. They encompass various functionalities, from data extraction and transformation to advanced machine learning and visualization. These components are designed to be easily integrated into your workflows, providing robust and reliable performance. Below is a list of some of the key components available:
+
 
 | Component name | Component description |
 |---|---|
@@ -105,12 +106,15 @@ The following is a list of pre-defined Lunar components, together with their des
 
 ## Running components
 
-Every component will include a run() function that defines the running behavior of the component. This behavior can be triggered by calling the run() function programmatically with a component instance (i.e., components are defined as Python objects) or by using the run button in the interface, as seen in the image below. At runtime, the component inputs are either provided by the user in the form of text inputs or data inputs (i.e., file upload) or received from downstream components - via in-edges, while the output is printed in the interface as seen below.
+Every component in Lunar performs a pre-defined task encapsulated within an action. Each component includes a `run()` function that defines its execution behavior. This behavior can be triggered programmatically by calling the `run()` function on a component instance (i.e., components are defined as Python objects) or by using the run button in the interface, as seen in the image below.
+
+Every component will include a run() function that defines the running behavior of the component. This behavior can be triggered by calling the run() function programmatically with a component instance (i.e., components are defined as Python objects) or by using the run button in the interface, as seen in the image below.
 
 ![Lunar workflow](img/chat_with_db.png)
 
-___
-Inputs/output received/sent from/to downstream/upstream components requires data type compatibility. Generally, a component _A_ with output of type _T_ could only link to a component _B_ that expects an input of the same type _T_. The only exception to this type compatibility requirement is the case where _A_ outputs a _list_ of multiple instance of _T_. In such a case component _B_ will automatically run in a loop for every instance received from _A_.
+At runtime, the component inputs are either provided by the user in the form of text inputs or data inputs (i.e., file upload) or received from downstream components - via in-edges, while the output is printed in the interface as seen below.
+
+Inputs and outputs exchanged between components must be compatible in terms of data types. Generally, a component _A_ with an output of type _T_ can only link to a component _B_ that expects an input of the same type _T_. The only exception to this type compatibility requirement is when _A_ outputs a _list_ of multiple instances of _T_. In such cases, component _B_ will automatically run in a loop for each instance received from _A_.
 
 ## Data types
 
