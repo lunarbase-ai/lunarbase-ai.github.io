@@ -108,8 +108,6 @@ Lunar have a wide range of first-party components tested and ready for you to us
 
 Every component in Lunar performs a pre-defined task encapsulated within an action. Each component includes a `run()` function that defines its execution behavior. This behavior can be triggered programmatically by calling the `run()` function on a component instance (i.e., components are defined as Python objects) or by using the run button in the interface, as seen in the image below.
 
-Every component will include a run() function that defines the running behavior of the component. This behavior can be triggered by calling the run() function programmatically with a component instance (i.e., components are defined as Python objects) or by using the run button in the interface, as seen in the image below.
-
 ![Lunar workflow](img/chat_with_db.png)
 
 At runtime, the component inputs are either provided by the user in the form of text inputs or data inputs (i.e., file upload) or received from downstream components - via in-edges, while the output is printed in the interface as seen below.
