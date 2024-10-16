@@ -97,15 +97,15 @@ The commands above will make Lunarcore's REST API available on all local interfa
 | LUNAR_STORAGE_BASE_PATH | "/tmp/lunar" | The root location of where data will be stored |
 | LUNARCORE_ADDRESS | "0.0.0.0" | The default API IP address (i.e., defaults to listening on all interfaces) |
 | LUNARCORE_PORT | 8088 | The default API port |
-| PERSISTENT_REGISTRY_STARTUP_FILE | "full path to lunarcore/components.json" | The full path of `components.json` file. |
 
+On install we will automatically fill `PERSISTENT_REGISTRY_STARTUP_FILE` dynamically with the full path of the default components registry startup file that is located under `./lunarcore/components.json`. If you desire to use a different file on startup, you can always overwrite it at the generated `.env` file. 
 
 :::note
 If you want to import components from a private github repo extending the lunarverse, you'll need to add `REGISTER_GITHUB_TOKEN="your github token"` to the  `.env` file.
 :::
 
 :::note
-For working with co-pilot, you will also need to add 3 environment variables to the `.env`file:
+For working with co-pilot, you will also need to add 3 environment variables to the `.env` file:
 
 - AZURE_ENDPOINT="your azure endpoint"
 - AZURE_DEPLOYMENT="your azure deployment"
