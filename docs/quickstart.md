@@ -11,23 +11,14 @@ This quickstart shows how to:
 
 Let's get started ...
 
-
-## Local Lunar setup
-
-:::note
-
-The following setup works for Mac, Linux and Windows with WSL2
-
-Windows users can install WSL2 by following the instructions [here](https://learn.microsoft.com/en-us/windows/wsl/install)
-
-:::
+## Overview
 
 Lunar consists of three parts:
-- The _Lunarcore_ service - the core of Lunar, a Python-based service that includes the backend functionalities.
+- The _Lunarcore_ service - the core of Lunar, a Python-based service that includes the backend functionalities including a CLI, an API and the lunar core framework.
 - The _Lunarverse_ - Lunar is organized as a plugin-architecture and the [Lunarverse](https://github.com/lunarbase-labs/lunarverse) represents a collection of components (or plugins) available to create workflows and AI expert systems.
 - The _Lunarflow_ interface - a React-based application that allows GUI-based interaction with Lunar workflows and their components.
 
-The following is an overview of Lunar's directory structure denoting the frontend and backend components. The component library, Lunarverse, is organized in its own Github repository located at https://github.com/lunarbase-labs/lunarverse. 
+You can access Lunar's repository on Github at https://github.com/lunarbase-ai/lunar. The following is an overview of Lunar's directory structure denoting the frontend and backend components:
 
 lunar
 
@@ -41,6 +32,18 @@ lunar
 
 └── scripts
 
+The component library, Lunarverse, is organized in its own Github repository located at https://github.com/lunarbase-labs/lunarverse. 
+
+## Local Lunar setup
+
+:::note
+
+The following setup works for Mac, Linux and Windows with WSL2
+
+Windows users can install WSL2 by following the instructions [here](https://learn.microsoft.com/en-us/windows/wsl/install)
+
+:::
+
 ### Lunarflow
 
 Lunarflow is the web-based interface that offers effortless interaction with the universe of Lunar components. 
@@ -50,11 +53,13 @@ Lunarflow is the web-based interface that offers effortless interaction with the
 Lunarflow requires the following dependencies:
 - [Node.js between 18.19 and 20.0](https://nodejs.org/en/blog/release/v18.19.0)
 
-Once Node.js is ready the easiest way to install Lunarflow locally is using the provided installation scripts from the **scripts** directory (see above):
+Once Node.js is ready the easiest way to install Lunarflow locally is using the provided installation scripts from the **scripts** directory under `./lunarflow/scripts`:
 
 __lunarflow_unix_install.sh__: `source lunarflow_unix_install.sh` 
 
-The command above will install and make Lunarflow accessible at http://localhost:8080. To change the address or port number configuration, navigate to `lunar/lunarflow/` and open `.env` (or create a new `.env` file by copying `[EXAMPLE].env`). Modify the corresponding lines and save the file. Upon startup Lunarflow will load the environment from `.env` assuming such file exists. The default values for the required variables in `.env` include:
+The command above will install lunarflow. 
+
+Once it is installed, you can change the address or port number of lunarflow by opening the `.env` file at the root directory. Modify the corresponding lines and save the file. Upon startup Lunarflow will load the environment from `.env` assuming such file exists. The default values for the required variables in `.env` include:
 
 | Variable name | Default value| Description |
 | ----------- | ----------- | ----------- |
@@ -62,7 +67,12 @@ The command above will install and make Lunarflow accessible at http://localhost
 | NEXT_PUBLIC_HOST | http://localhost:8080 | The host URL for the frontend application (LunarVerse). |
 | NEXTAUTH_URL | http://localhost:8080 | The callback URL for NextAuth authentication, normally pointing to the frontend application's host. |
 
-The `.env` file should also set `GOOGLE_CLIENT_ID` and `GOOGLE_CLIENT_SECRET`. These will be optional soon, but in the meantime, you can generate them by configuring a project [here](https://developers.google.com/identity/oauth2/web/guides/get-google-api-clientid?hl=fr).
+If you're on Windows you might consider changing `NEXT_PUBLIC_LUNARVERSE_ADDRESS` to `http://localhost:8088`.
+
+
+### Start
+
+For starting lunarflow, make sure you're at `./lunarflow` and run `yarn start`. This command will open lunarflow using the host and port number set at the environment file. 
 
 
 ### Lunarcore
@@ -74,7 +84,7 @@ Lunarcore represents the backend logic of the Lunar AI expert platform. It inclu
 Lunarverse is written in Python so all dependencies are managed automatically. It requires
 - [Python 3.9.0+](https://www.python.org/downloads/release/python-390/)
 
-Once Python is installed the easiest way to install Lunarcore locally is using the provided installation scripts from the **scripts** directory (see above):
+Once Python is installed the easiest way to install Lunarcore locally is using the provided installation scripts from the **scripts** directory under `lunarcore/scripts`:
 
 __lunarcore_unix_install.sh__: `source lunarcore_unix_install.sh` 
 
@@ -83,12 +93,28 @@ The commands above will make Lunarcore's REST API available on all local interfa
 
 | Variable name | Default value| Description |
 | ----------- | ----------- | ----------- |
-| FLOW_STORAGE | "LOCAL" | The type of storage used by Lunarverse for various data storage needs, e.g., file uploads, workflow persistence, etc. At the moment local and S3 storage are supported |
-| FLOW_STORAGE_BASE_PATH | "/tmp/lunarverse" | The root location of where data will be stored |
-| LUNARVERSE_ADDRESS | "0.0.0.0" | The default API IP address (i.e., defaults to listening on all interfaces) |
-| LUNARVERSE_PORT | 8088 | The default API port |
-| FLOW_ROOT_DIR | "workflows" | The main directory to save workflows. The full path will be `<FLOW_STORAGE_BASE_PATH>/<user_name>/<FLOW_ROOT_DIR>/<workflow_id>`|
+| LUNAR_STORAGE_TYPE | "LOCAL" | The type of storage used by Lunarverse for various data storage needs, e.g., file uploads, workflow persistence, etc. At the moment local and S3 storage are supported |
+| LUNAR_STORAGE_BASE_PATH | "/tmp/lunar" | The root location of where data will be stored |
+| LUNARCORE_ADDRESS | "0.0.0.0" | The default API IP address (i.e., defaults to listening on all interfaces) |
+| LUNARCORE_PORT | 8088 | The default API port |
+| PERSISTENT_REGISTRY_STARTUP_FILE | "full path to lunarcore/components.json" | The full path of `components.json` file. |
 
+
+:::note
+If you want to import components from a private github repo extending the lunarverse, you'll need to add `REGISTER_GITHUB_TOKEN="your github token"` to the  `.env` file.
+:::
+
+:::note
+For working with co-pilot, you will also need to add 3 environment variables to the `.env`file:
+
+- AZURE_ENDPOINT="your azure endpoint"
+- AZURE_DEPLOYMENT="your azure deployment"
+- OPENAI_API_KEY="your open api key"
+:::
+
+### Start
+
+For starting lunarcore, make sure you're at `./lunarcore`, enter the installed poetry environment with `poetry shell` and run `poetry run lunarcore start`.
 
 ## Lunar with Docker compose
 
