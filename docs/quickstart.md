@@ -18,7 +18,7 @@ Lunar consists of three parts:
 - The _Lunarverse_ - Lunar is organized as a plugin-architecture and the [Lunarverse](https://github.com/lunarbase-labs/lunarverse) represents a collection of components (or plugins) available to create workflows and AI expert systems.
 - The _Lunarflow_ interface - a React-based application that allows GUI-based interaction with Lunar workflows and their components.
 
-You can access Lunar's repository on Github at https://github.com/lunarbase-ai/lunar. The following is an overview of Lunar's directory structure denoting the frontend and backend components:
+You can access Lunar's repository on Github at https://github.com/lunarbase-ai/lunar/tree/v0.1. The following is an overview of Lunar's directory structure denoting the frontend and backend components:
 
 lunar
 
