@@ -44,6 +44,60 @@ Windows users can install WSL2 by following the instructions [here](https://lear
 
 :::
 
+### Tldr.
+
+#### 0. Make sure all the requirements are satisfied
+
+- Python 3.9.0+
+- Node.js between 18.19 and 20.0
+- WSL (For Windows users)
+
+#### 1. Clone lunar repository
+
+`git clone -b v0.1 https://github.com/lunarbase-ai/lunar ./lunar`
+
+`cd lunar`
+
+#### 2. Enter lunarflow repository
+
+`cd lunarflow`
+
+#### 3. Install lunarflow
+
+`source scripts/lunarflow_unix_install.sh`
+
+
+:::note
+
+If you're on Windows you might consider changing `NEXT_PUBLIC_LUNARVERSE_ADDRESS` to `http://localhost:8088` at the environment file just created after install and run `yarn build` after you've done it.
+
+:::
+
+#### 4. Start lunarflow
+
+`yarn start`
+
+#### 5. Open new terminal and go to lunarcore
+
+`cd lunarcore`
+
+#### 6. Install lunarcore
+
+`source scripts/lunarcore_unix_install.sh`
+
+#### 7. Copy [ALL]components.json and rename it to components.json.
+
+If you use another file for storing components configuration you will need to go to `.env` and add its full path to the `PERSISTENT_REGISTRY_STARTUP_FILE` variable.
+
+#### 8. Start a poetry shell
+
+`poetry shell`
+
+#### 9. Start lunarcore
+
+`poetry run lunarcore start`
+
+
 ### Lunarflow
 
 Lunarflow is the web-based interface that offers effortless interaction with the universe of Lunar components. 
@@ -70,7 +124,7 @@ Once it is installed, you can change the address or port number of lunarflow by 
 If you're on Windows you might consider changing `NEXT_PUBLIC_LUNARVERSE_ADDRESS` to `http://localhost:8088`.
 
 
-### Start
+#### Start
 
 For starting lunarflow, make sure you're at `./lunarflow` and run `yarn start`. This command will open lunarflow using the host and port number set at the environment file. 
 
@@ -112,7 +166,7 @@ For working with co-pilot, you will also need to add 3 environment variables to 
 - OPENAI_API_KEY="your open api key"
 :::
 
-### Start
+#### Start
 
 For starting lunarcore, make sure you're at `./lunarcore`, enter the installed poetry environment with `poetry shell` and run `poetry run lunarcore start`.
 
