@@ -75,7 +75,7 @@ const config: Config = {
         },
         // { to: '/blog', label: 'Blog', position: 'left' },
         {
-          href: 'https://github.com/lunarbase-labs/lunar',
+          href: 'https://github.com/lunarbase-ai/lunar/tree/v0.1',
           label: 'GitHub',
           position: 'right',
         },
@@ -119,7 +119,7 @@ const config: Config = {
           items: [
             {
               label: 'GitHub',
-              href: 'https://github.com/lunarbase-ai/lunarverse',
+              href: 'https://github.com/lunarbase-ai/lunar/tree/v0.1',
             },
           ],
         },
