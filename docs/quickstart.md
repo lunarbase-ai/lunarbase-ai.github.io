@@ -67,12 +67,6 @@ Windows users can install WSL2 by following the instructions [here](https://lear
 `source scripts/lunarflow_unix_install.sh`
 
 
-:::note
-
-If you're on Windows you might consider changing `NEXT_PUBLIC_LUNARVERSE_ADDRESS` to `http://localhost:8088` at the environment file just created after install and run `yarn build` after you've done it.
-
-:::
-
 #### 4. Start lunarflow
 
 `yarn start`
@@ -85,15 +79,11 @@ If you're on Windows you might consider changing `NEXT_PUBLIC_LUNARVERSE_ADDRESS
 
 `source scripts/lunarcore_unix_install.sh`
 
-#### 7. Copy [ALL]components.json and rename it to components.json.
-
-If you use another file for storing components configuration you will need to go to `.env` and add its full path to the `PERSISTENT_REGISTRY_STARTUP_FILE` variable.
-
-#### 8. Start a poetry shell
+#### 7. Start a poetry shell
 
 `poetry shell`
 
-#### 9. Start lunarcore
+#### 8. Start lunarcore
 
 `poetry run lunarcore start`
 
@@ -120,9 +110,6 @@ Once it is installed, you can change the address or port number of lunarflow by 
 | NEXT_PUBLIC_LUNARVERSE_ADDRESS | http://0.0.0.0:8088 | The URL of the LunarCore API. |
 | NEXT_PUBLIC_HOST | http://localhost:8080 | The host URL for the frontend application (LunarVerse). |
 | NEXTAUTH_URL | http://localhost:8080 | The callback URL for NextAuth authentication, normally pointing to the frontend application's host. |
-
-If you're on Windows you might consider changing `NEXT_PUBLIC_LUNARVERSE_ADDRESS` to `http://localhost:8088`.
-
 
 #### Start
 
