@@ -30,6 +30,14 @@ The component library, Lunarverse, is organized in its own Github repository loc
 
 ## Standard install
 
+:::note
+
+The following setup works for Mac, Linux and Windows with WSL2
+
+Windows users can install WSL2 by following the instructions [here](wsl_install)
+
+:::
+
 
 ### Step 1: Make sure all the requirements are satisfied
 
