@@ -6,7 +6,7 @@
 
 The following setup works for Mac, Linux and Windows with WSL2
 
-Windows users can install WSL2 by following the instructions [here](https://learn.microsoft.com/en-us/windows/wsl/install)
+Windows users can install WSL2 by following the instructions [here](wsl_install)
 
 :::
 
