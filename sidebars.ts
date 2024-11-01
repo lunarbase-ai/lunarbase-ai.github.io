@@ -22,7 +22,7 @@ const sidebars: SidebarsConfig = {
       label: 'Get Started',
       collapsed: false,
       collapsible: false,
-      items: ['index', 'quickstart']
+      items: ['index', 'quickstart', 'lunar_local_environment']
     },
     'component',
     'workflow',
