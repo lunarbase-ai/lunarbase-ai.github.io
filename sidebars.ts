@@ -24,6 +24,7 @@ const sidebars: SidebarsConfig = {
       collapsible: false,
       items: ['index', 'quickstart', 'lunar_local_environment']
     },
+    
     'component',
     'workflow',
     'concepts',
@@ -45,16 +46,23 @@ const sidebars: SidebarsConfig = {
       ]
     },
     {
-      type: 'category',
-      label: 'Contributions Gallery',
-      collapsed: true,
-      collapsible: true,
-      items: [
-        'contributions_gallery/financial_report',
-        'contributions_gallery/gene_analysis',
-        'contributions_gallery/ai_music',
-        'contributions_gallery/paper_extraction',
-      ],
+        type: 'category',
+        label: 'Contributions Gallery',
+        collapsed: true,
+        collapsible: true,
+        items: [
+            'contributions_gallery/financial_report',
+            'contributions_gallery/gene_analysis',
+            'contributions_gallery/ai_music',
+            'contributions_gallery/paper_extraction',
+        ],
+    },
+    {
+        type: 'category',
+        label: 'Additional Resources',
+        collapsed: false,
+        collapsible: false,
+        items: ['wsl_install']
     },
   ],
 };
