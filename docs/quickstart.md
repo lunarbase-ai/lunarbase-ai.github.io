@@ -1,7 +1,7 @@
 # Quickstart
 
 Lunar is a low-code platform for the construction of **AI expert agents and systems**. It is designed to enable domain experts to directly build and adapt complex analytical AI-based workflows to approach domain-specific problems. Lunar facilitates the integration of generative AI within complex analytical areas, including but not limited to *bioinformatics*, *engineering*, *finance*, *marketing*, *media*, etc.
-
+ 
 This quickstart shows how to have a local environment up and running with Lunar, enabling you to quickly start building and testing AI workflows.
 
 ## Overview
