@@ -39,108 +39,108 @@ Windows users can install WSL2 by following the instructions [here](wsl_install)
 :::
 
 
-### Step 1: Make sure all the requirements are satisfied
+### Make sure all the requirements are satisfied
 
 - Python 3.9.0+
 - Node.js between 18.19 and 20.0
 - WSL (For Windows users)
 
-### Step 2: Clone lunar repository
+### Clone lunar repository
 
-`git clone -b v0.1 https://github.com/lunarbase-ai/lunar ./lunar`
+First, clone the repository:
+```bash
+git clone -b v0.1 https://github.com/lunarbase-ai/lunar ./lunar
+```
 
-### Step 3: Enter Lunar repository
+### Enter Lunar
 
-`cd lunar`
+Change to the Lunar directory:
+```bash
+cd lunar
+```
 
-### Step 4: Enter lunarflow repository
+### Enter lunarflow
 
-`cd lunarflow`
+Move into the lunarflow subdirectory:
+```bash
+cd lunarflow
+```
 
-### Step 5: Install lunarflow
+### Install lunarflow
 
-`source scripts/lunarflow_unix_install.sh`
+Run the installation script for Lunarflow:
+
+```bash
+source scripts/lunarflow_unix_install.sh
+```
 
 
-### Step 6: Start lunarflow
+### Start lunarflow
 
-`yarn start`
+To start Lunarflow, run:
+```bash
+yarn start
+```
 
-### Step 7: Open new terminal and go to lunarcore
+### Open new terminal and go to lunarcore
 
-`cd lunarcore`
+Open a new terminal window and change to the lunarcore directory:
+```bash
+cd lunarcore
+```
 
-### Step 8: Install lunarcore
+### Install lunarcore
 
-`source scripts/lunarcore_unix_install.sh`
+```bash
+source scripts/lunarcore_unix_install.sh
+```
+### Start a poetry shell
 
-### Step 9: Start a poetry shell
+Activate the Poetry shell:
 
-`poetry shell`
+```bash
+poetry shell
+```
 
-### Step 10: Start lunarcore
+### Start lunarcore
 
-`poetry run lunarcore start`
+Finally, start Lunarcore with Poetry:
+
+```bash
+poetry run lunarcore start
+```
 
 
 ## Install with Docker
 
-:::warning
+To get started with Docker, ensure that Docker and Docker Compose are installed on your machine.
 
-Currently the docker compose setup only work with Linux or WSL2 on Windows
+- [Install Docker](https://docs.docker.com/get-docker/)
+- [Install Docker Compose](https://docs.docker.com/compose/install/)
 
-:::
+### Verify Installation
 
-:::note
-
-Windows users can install WSL2 by following the intructions [here](https://learn.microsoft.com/en-us/windows/wsl/install)
-
-:::
-
-Clone lunarecore and move inside the docker directory
-
+After installation, verify that Docker is running correctly with the following command:
 ```bash
-git clone https://github.com/lunarbase-labs/lunarcore
-cd lunarcore
-cd docker
+docker info
 ```
+This should display details about your Docker installation. If it doesn't, troubleshoot your Docker installation.
 
-:::tip
+### Build and Run the Application
 
-You can install git from [here](https://github.com/git-guides/install-git) if it's not already available on your system.
-
-:::
-
-Edit the file `lunarflow_env.env` then add your `GOOGLE_CLIENT_ID` and `GOOGLE_CLIENT_SECRET`.
-
-:::note
-
-`GOOGLE_CLIENT_ID` and `GOOGLE_CLIENT_SECRET` will be optional soon, but in the meantime, you can generate them by configuring a project [here](https://developers.google.com/identity/oauth2/web/guides/get-google-api-clientid?hl=fr)
-
-:::
-
-Run the `prepare.py` script
-
-```bash
-python prepare.py
-```
-
-:::tip
-
-You can install python from [here](https://wiki.python.org/moin/BeginnersGuide/Download) if it's not already available on your system.
-
-:::
-
-Build and run the lunarbase docker compose
+To build and start the services defined in the docker-compose.yml file, navigate to the project root directory and run:
 
 ```bash
 docker compose build && docker compose up
 ```
 
-:::tip
+This will build the lunarcore and lunarflow images and start the containers.
 
-You can install docker with the compose plugin from [here](https://docs.docker.com/compose/install/) if it's not already available on your system.
+### Stopping the Services
+For stopping the services, use the following command:
 
-:::
+```bash
+docker compose down
+```
+This will stop all running services and clean up any resources created during the build and runtime.
 
-Then click on this [link](http://localhost:8080)
