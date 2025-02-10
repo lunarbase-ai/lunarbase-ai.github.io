@@ -109,38 +109,3 @@ Finally, start Lunarcore with Poetry:
 ```bash
 poetry run lunarcore start
 ```
-
-
-## Install with Docker
-
-To get started with Docker, ensure that Docker and Docker Compose are installed on your machine.
-
-- [Install Docker](https://docs.docker.com/get-docker/)
-- [Install Docker Compose](https://docs.docker.com/compose/install/)
-
-### Verify Installation
-
-After installation, verify that Docker is running correctly with the following command:
-```bash
-docker info
-```
-This should display details about your Docker installation. If it doesn't, troubleshoot your Docker installation.
-
-### Build and Run the Application
-
-To build and start the services defined in the docker-compose.yml file, navigate to the project root directory and run:
-
-```bash
-docker compose build && docker compose up
-```
-
-This will build the lunarcore and lunarflow images and start the containers.
-
-### Stopping the Services
-For stopping the services, use the following command:
-
-```bash
-docker compose down
-```
-This will stop all running services and clean up any resources created during the build and runtime.
-
