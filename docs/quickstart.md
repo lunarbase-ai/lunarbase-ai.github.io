@@ -41,7 +41,7 @@ Windows users can install WSL2 by following the instructions [here](wsl_install)
 
 ### Make sure all the requirements are satisfied
 
-- Python 3.9.0+
+- Python 3.9.0
 - Node.js between 18.19 and 20.0
 - WSL (For Windows users)
 
