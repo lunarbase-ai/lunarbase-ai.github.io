@@ -131,10 +131,10 @@ This should display details about your Docker installation. If it doesn't, troub
 To build and start the services defined in the docker-compose.yml file, navigate to the project root directory and run:
 
 ```bash
-docker compose build && docker compose up
+docker compose up --build
 ```
 
-This will build the lunarcore and lunarflow images and start the containers.
+This will build the lunarbase and lunarflow images and start the containers.
 
 ### Stopping the Services
 For stopping the services, use the following command:
