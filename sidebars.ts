@@ -55,6 +55,7 @@ const sidebars: SidebarsConfig = {
             'contributions_gallery/gene_analysis',
             'contributions_gallery/ai_music',
             'contributions_gallery/paper_extraction',
+            'contributions_gallery/nl2sql',
         ],
     },
     {
