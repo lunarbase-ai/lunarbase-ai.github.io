@@ -51,11 +51,12 @@ const sidebars: SidebarsConfig = {
         collapsed: true,
         collapsible: true,
         items: [
-            'contributions_gallery/financial_report',
-            'contributions_gallery/gene_analysis',
-            'contributions_gallery/ai_music',
+            // 'contributions_gallery/financial_report',
+            // 'contributions_gallery/gene_analysis',
+            // 'contributions_gallery/ai_music',
             'contributions_gallery/paper_extraction',
             'contributions_gallery/nl2sql',
+            'contributions_gallery/company_financial_report'
         ],
     },
     {

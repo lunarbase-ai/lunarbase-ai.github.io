@@ -1,0 +1,24 @@
+import ReactPlayer from 'react-player'
+
+# Building a Company Financial Report
+
+This demonstration covers a simplified (educational) example of monitoring the latest events associated with a publicly traded company. An API connector is used to collect data from a specific company (recent news, management team, and financials), which is then semantically analyzed using LLMs with results post-processed  and outputed into a report.
+
+
+## One-Shot Reports
+
+This demonstration showcases the concept of a *one-shot report*, where a generative AI expert agent performs various analytical tasks that are aggregated into a single report. Many analytical tasks aim to produce a document that builds an evidence/data-driven argument to support downstream decision-making. 
+
+**Lunar** integrates this concept into its architecture, allowing the end-to-end organization of the analytical cycle from data source collection to communication of results. While some reports can be fully automated, Lunar users commonly treat one-shot reports as a first draft, which concentrates all relevant evidence into a single point of access and performs preliminary analytical processes.
+
+
+## Workflow
+
+In this example workflow, the Yahoo Finance API is used to collect basic company data for a specified company. Given the stock identifier as an input parameter, the workflow starts by using an external finance API to collect fundamental, shareholder, management team and event data for a target company. All data is then semantically analyzed using LLMs, post-processed, and all results are output into a report. 
+
+
+<ReactPlayer playing controls url='/finance_demo.mp4' />
+
+## Contributors
+
+This workflow was developed by Alex Bogatu and adapted by Danilo Miranda and Pedro Rocha.
