@@ -1,0 +1,55 @@
+import ReactPlayer from 'react-player'
+
+# Translating SQL Queries to Natural Language
+
+## Motivation 
+
+The goal of this workflow is to demonstrate how to leverage lunar's capabilities to translate SQL queries into natural language. This workflow is useful for users who are not familiar with SQL and want to interact with databases using natural language within lunar. At the moment lunar supports only csv files as data sources and the queries are executed using the `duckdb` engine, but the workflow can be easily extended to support other data sources and SQL engines in the future.
+
+
+
+
+## Workflow Overview
+
+This demonstration consists of a simple workflow that translates natural language questions into SQL queries and executes them on a dataset to retrieve the results.
+
+The workflow consists of the following steps: 
+
+
+
+1. **Data Loading**: Load the data that will be used for querying. At the demonstration bellow, we will use three CSV files: `head.csv`, `management.csv`, and `department.csv`. These files contain information about heads of departments, departments, and which department each head is responsible for.
+
+2. **Natural Language to SQL**: Translate natural language questions into SQL queries. The user can input a natural language question, and the workflow will generate the corresponding SQL query.
+
+3. **Query Execution**: Execute the generated SQL query on the data and retrieve the results. The results will be displayed to the user at the end of the workflow.
+
+
+## Demonstration
+
+Watch the video below to see what the actual workflow looks like.
+
+<ReactPlayer playing controls url='/nl2sql.mp4' />  
+<br/>
+At the demonstration, we will input the natural language query: `What's the name of all heads of departments not acting temporarily?`.  
+
+The workflow will generate the corresponding SQL query:  
+
+```sql
+SELECT head.name 
+FROM head 
+JOIN management ON head.head_ID = management.head_ID 
+WHERE management.temporary_acting = 'No';
+```
+
+At the end of the workflow, the results will be displayed as follows:
+
+| name |
+|------|
+| K.J. Choi |
+| Franklin Langham   |
+  
+  
+  
+## Contributors
+
+The NL2SQL component was initially developed by João Pedro G. de Souza, with the workflow demonstration and CSV query functionality contributed by Pedro Rocha.
