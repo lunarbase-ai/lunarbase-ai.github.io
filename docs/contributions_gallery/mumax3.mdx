@@ -3,37 +3,52 @@
 Micromagnetic simulations are essential for understanding and predicting the behavior of magnetic materials at the nanoscale. However, configuring and executing these simulations can be challenging, particularly for users unfamiliar with scripting languages. MuMax3 provides a powerful GPU-accelerated platform for micromagnetic modeling, and an effective workflow is necessary to streamline the process.
 This document outlines a structured approach to defining, executing, and analyzing MuMax3 simulations using a Large Language Model (LLM)-based system, which automates script generation, execution, and result processing.
 ---
-## *2. Introduction* 
+## *2. Introduction*
+
 This document provides a structured workflow for creating and running a MuMax3 simulation using an LLM-based framework. The simulation process generates *JSON outputs* and *visual representations* based on user-defined specifications.
+
 ### *Accessing the Workflow* 
+
 The simulation workflow can be accessed via:
 :point_right: *LunarBase AI Platform*
 To start a simulation:
 1. Click *“Try Lunar Web”* to access the interface.
 2. Select *“MuMax Workflow”* from the available options.
 ---
+
 ## *3. Workflow Overview* 
+
 The MuMax3 workflow consists of the following steps:
 1. *Specification Definition* – Define simulation parameters in natural language.
 2. *Translation to MuMax3 Script* – Convert the specification into a MuMax3-compatible script using an LLM.
 3. *Simulation Execution* – Run the script in the MuMax3 environment via LunarBase.
 4. *Result Extraction and Analysis* – Retrieve JSON outputs, visualize results, and interpret findings.
+
 ---
+
 ## *4. Step-by-Step Guide* 
 ### *Step 1: Specification Definition* 
+
 The user provides a natural language description of the simulation.
+
 ---
+
 ### *Step 2: Translation to MuMax3 Script* 
 An LLM translates the natural language input into a MuMax3 script.
+
 ---
+
 ### *Step 3: Simulation Execution* 
+
 1. The LLM submits the script to the MuMax3 engine via *LunarBase AI*.
 2. Execution is monitored, and errors are auto-corrected when possible.
 3. If errors persist, manual intervention is required.
 To manually execute a script in a local MuMax3 environment:
 bash
 mumax3 simulation.mx3
+
 ---
+
 ### *Step 4: Result Extraction and Analysis* 
 - The simulation generates *JSON output*, containing:
   - "result" – Status (success or failure).
@@ -42,7 +57,9 @@ mumax3 simulation.mx3
 *Example Data Extraction Command:*
 bash
 mumax3-convert -f m simulation.ovf
+
 ---
+
 ## *5. System Parameters* 
 The *LunarBase AI* platform allows customization of the LLM-based system with the following parameters:
 | Parameter      | Description  |
@@ -77,10 +94,15 @@ After execution, the system returns a JSON object with:
 - If successful, images are displayed.
 - If an error occurs, the system attempts correction.
 ---
-## *8. Conclusion* 
+
+## *8. Conclusion*
+
 This workflow provides a *systematic and automated* approach for running MuMax3 simulations, enhancing efficiency and accessibility. Future enhancements may include deeper *machine learning integration* for optimizing simulation parameters.
+
 ---
-## *9. Glossary* 
+
+## *9. Glossary*
+
 - *LLM* – Large Language Model for AI-based script generation.
 - *JSON* – Format for structured data exchange.
 - *Base64* – Encoding method for image storage.
