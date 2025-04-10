@@ -1,0 +1,188 @@
+# LunarComponent class
+
+The `LunarComponent` is the base class for all components in the Lunar system. It provides the essential structure and functionality for creating reusable, observable units of work in AI agents.
+
+## Overview
+
+The `LunarComponent` is an abstract base class (ABC) that must be extended to create custom components. It defines the fundamental structure and requirements for all components in the Lunar system.
+
+## Key Concepts
+
+### Component Structure
+
+Every component in Lunar follows a strict structure:
+
+- **Name**: A unique identifier for the component
+- **Description**: A template-based description of the component's functionality
+- **Input Types**: A dictionary that defines the inputs and their data types
+- **Output Type**: The data type of the component's output
+- **Component Group**: A category that defines the component's functionality area
+- **Configuration**: Optional default configuration parameters
+
+### Data Types
+
+Lunar supports various data types through its `DataType` enum. Here are the main categories:
+
+#### Basic Types
+- `TEXT`: For text-based inputs/outputs
+- `INT`: For integer values
+- `FLOAT`: For floating-point numbers
+- `BOOL`: For boolean values
+
+#### File and Media Types
+- `FILE`: For handling file operations
+- `IMAGE`: For image processing
+- `AUDIO`: For audio data
+
+#### Data Science Types
+- `CSV`: For CSV file handling
+- `JSON`: For JSON data
+- `EMBEDDINGS`: For vector embeddings
+
+#### Visualization Types
+- `BAR_CHART`: For bar chart outputs
+- `LINE_CHART`: For line chart outputs
+
+#### Special Types
+- `WORKFLOW`: For workflow definitions
+- `PROPERTY_SELECTOR`: For property selection
+- `PROPERTY_GETTER`: For property retrieval
+
+For a complete list of data types, see the [DataType](/docs/components/data-types) section.
+
+### Component Groups
+
+Components are organized into logical groups using the `ComponentGroup` enum. The main groups include:
+
+- `DATABASES`: For database operations
+- `GENAI`: For generative AI capabilities
+- `DATA_SCIENCE`: For data science operations
+- `CODERS`: For code generation and manipulation
+- `DATA_EXTRACTION`: For data extraction tasks
+- `DATA_VECTORIZERS`: For vectorization operations
+- `DATA_VISUALIZATION`: For visualization capabilities
+- `DATA_TRANSFORMATION`: For data transformation operations
+- `IO`: For input/output operations
+- `NLP`: For natural language processing
+- `API_TOOLS`: For API integration
+- `BIOMEDICAL`: For bio-medical operations
+- `MUSICGEN`: For music generation
+- `UTILS`: For utility functions
+- `LUNAR`: For core Lunar system components
+
+For a complete list of component groups, see the [ComponentGroup](/components/components-groups) section.
+
+## Example: A Text Processor Component
+
+Here's a complete example of a custom component that processes text:
+
+```python
+from lunarcore.component.lunar_component import LunarComponent
+from lunarcore.component.data_types import DataType
+from lunarcore.component.component_group import ComponentGroup
+
+class TextProcessor(LunarComponent,
+                    component_name="TextProcessor",
+                    component_group=ComponentGroup.NLP,
+                    input_types={
+                        "input_text": DataType.TEXT,
+                        "process_type": DataType.SELECT
+                    },
+                    output_type=DataType.TEXT,
+                    component_description="""
+                    Processes input text based on specified type.
+                    Output (str): Processed text based on selected type
+                    """,
+                    # Configuration parameters
+                    max_length=1000,  # Maximum allowed text length
+                    strip_whitespace=True,  # Whether to strip whitespace
+                    ):
+
+    def __init__(self, **kwargs: Any):
+        super().__init__(configuration=kwargs)
+        # Initialize the allowed process types
+        self.process_types = [
+            "lowercase",  # Convert text to lowercase
+            "uppercase",  # Convert text to uppercase
+            "capitalize",  # Capitalize first letter of each word
+            "title"       # Capitalize first letter of each word (title case)
+        ]
+        
+        # Initialize any configuration parameters
+        self.max_length = self.configuration.get('max_length', None)
+        self.strip_whitespace = self.configuration.get('strip_whitespace', True)
+
+    def run(self, input_text: str, process_type: str) -> str:
+        """
+        Process the input text based on the specified process type.
+        
+        Args:
+            input_text (str): The text to process
+            process_type (str): The type of processing to apply
+            
+        Returns:
+            str: The processed text
+            
+        Raises:
+            ValueError: If process_type is invalid or text exceeds max length
+        """
+        # Validate process type
+        if process_type not in self.process_types:
+            raise ValueError(f"Invalid process type. Must be one of: {self.process_types}")
+            
+        # Apply any configuration
+        if self.strip_whitespace:
+            input_text = input_text.strip()
+            
+        if self.max_length and len(input_text) > self.max_length:
+            raise ValueError(f"Input text exceeds maximum length of {self.max_length}")
+            
+        # Process the text based on process_type
+        if process_type == "lowercase":
+            result = input_text.lower()
+        elif process_type == "uppercase":
+            result = input_text.upper()
+        elif process_type == "capitalize":
+            result = input_text.title()
+        else:  # "title"
+            result = input_text.title()
+            
+        return result
+```
+
+This example demonstrates several important aspects of component development:
+
+1. **Basic Structure**
+   - Proper class inheritance from `LunarComponent`
+   - Required parameters in class definition
+   - Clear component description
+   - Configuration parameters passed as kwargs
+
+2. **Configuration**
+   - Configuration parameters as kwargs in class definition
+   - Accessing configuration through `self.configuration`
+   - Default values for configuration
+   - Type hints for configuration parameters
+
+3. **Input Validation**
+   - Validation of process type
+   - Length validation with configuration
+   - Whitespace handling
+
+4. **Error Handling**
+   - Clear error messages
+   - Proper exception raising
+   - Input validation before processing
+
+5. **Documentation**
+   - Docstring with Args, Returns, and Raises sections
+   - Clear parameter descriptions
+   - Explanation of functionality
+
+6. **Best Practices**
+   - Type hints for all parameters
+   - Proper initialization of class variables
+   - Clean code organization
+   - Defensive programming
+
+This component can be used in agentic workflows for text processing tasks, with the ability to customize its behavior through configuration parameters. The configuration parameters are passed as kwargs in the class definition and can be accessed through `self.configuration` in the `__init__` method.
