@@ -25,9 +25,18 @@ const sidebars: SidebarsConfig = {
       items: ['index', 'quickstart', 'lunar_local_environment']
     },
 
-    'component',
-    'workflow',
     'concepts',
+    'workflow',
+    {
+      type: 'category',
+      label: 'Components',
+      collapsed: true,
+      collapsible: true,
+      items: [
+        'components/intro',
+        'components/creating_a_new_component'
+      ]
+    },
     {
       type: 'category',
       label: 'Tutorials',
@@ -41,7 +50,6 @@ const sidebars: SidebarsConfig = {
         'workflow_tutorials/add_api_key',
         'workflow_tutorials/searching_workflows',
         'workflow_tutorials/copilot',
-        'creating_a_new_component',
         'workflow_tutorials/csv_chat',
       ]
     },
