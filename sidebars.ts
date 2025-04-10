@@ -34,10 +34,11 @@ const sidebars: SidebarsConfig = {
       collapsible: true,
       items: [
         'components/intro',
+        'components/lunarcore',
         'components/lunar-component',
-        'components/first-party-components',
         'components/component-groups',
         'components/data-types',
+        'components/first-party-components',
         'components/component-development',
         'components/running-components',
       ]
