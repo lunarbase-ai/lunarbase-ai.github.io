@@ -34,7 +34,8 @@ const sidebars: SidebarsConfig = {
       collapsible: true,
       items: [
         'components/intro',
-        'components/creating_a_new_component'
+        'components/creating_a_new_component',
+        'components/first_party_components'
       ]
     },
     {
