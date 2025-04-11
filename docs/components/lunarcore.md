@@ -29,51 +29,19 @@ pip install git+https://github.com/lunarbase-ai/lunar.git@develop#subdirectory=l
 
 ### LunarComponent Base Class
 
-The `LunarComponent` class is the base class for all components. It provides:
-
-- Component lifecycle management
-- Data type validation
-- Configuration management
+The `LunarComponent` class is the base class for all components.
 
 For more details, see the [LunarComponent](/docs/components/lunar-component) documentation.
 
 ### Data Types
 
-Lunarcore includes these core data types:
-
-- `TEXT`: For text processing
-- `IMAGE`: For image handling
-- `TABLE`: For tabular data
-- `PROPERTY_SELECTOR`: For property selection
-- `PROPERTY_GETTER`: For property retrieval
-- `FILE`: For file operations
-- `CSV`: For CSV files
-- `JSON`: For JSON data
-- `EMBEDDINGS`: For vector embeddings
-- `BAR_CHART`: For bar charts
-- `LINE_CHART`: For line charts
+Lunarcore includes core I/O data types that components can use.
 
 For a complete list and usage, see [Data Types](/docs/components/data-types).
 
 ### Component Groups
 
-Components are organized into these groups:
-
-- `DATABASES`: Database operations
-- `GENAI`: Generative AI
-- `DATA_SCIENCE`: Data science
-- `CODERS`: Code generation
-- `DATA_EXTRACTION`: Data extraction
-- `DATA_VECTORIZERS`: Vectorization
-- `DATA_VISUALIZATION`: Visualization
-- `DATA_TRANSFORMATION`: Data transformation
-- `IO`: Input/output
-- `NLP`: Natural language processing
-- `API_TOOLS`: API integration
-- `BIOMEDICAL`: Bio-medical
-- `MUSICGEN`: Music generation
-- `UTILS`: Utility functions
-- `LUNAR`: Core system components
+Components are organized and categorized into groups, defined and available at the lunarcore level.
 
 For more details, see [Component Groups](/docs/components/component-groups).
 

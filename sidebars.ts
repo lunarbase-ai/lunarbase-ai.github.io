@@ -40,7 +40,6 @@ const sidebars: SidebarsConfig = {
         'components/data-types',
         'components/first-party-components',
         'components/component-development',
-        'components/running-components',
       ]
     },
     {
