@@ -1,9 +1,0 @@
-# Running components
-
-Every component in Lunar performs a pre-defined task encapsulated within an action. Each component includes a `run()` function that defines its execution behavior. This behavior can be triggered programmatically by calling the `run()` function on a component instance (i.e., components are defined as Python objects) or by using the run button in the interface, as seen in the image below.
-
-![Lunar workflow](../img/chat_with_db.png)
-
-At runtime, the component inputs are either provided by the user in the form of text inputs or data inputs (i.e., file upload) or received from downstream components - via in-edges, while the output is printed in the interface as seen below.
-
-Inputs and outputs exchanged between components must be compatible in terms of data types. Generally, a component _A_ with an output of type _T_ can only link to a component _B_ that expects an input of the same type _T_. The only exception to this type compatibility requirement is when _A_ outputs a _list_ of multiple instances of _T_. In such cases, component _B_ will automatically run in a loop for each instance received from _A_.

@@ -1,1 +1,599 @@
 # Component Development
+
+This guide will walk you through the complete process of developing a Lunar component, from setting up your development environment to contributing to the Lunarverse, a repository of Lunar open-source components.
+
+## What are Components?
+
+Components are the building blocks of AI agents in the Lunar system. They are self-contained units of work that perform specific tasks, such as data processing, generative AI tasks, or database operations. 
+Under the hood they are python packages containing a `LunarComponent` class that extends the base `LunarComponent` class from the `lunarcore` package. This is what makes them components, and what allows them to be used in the Lunar system.
+
+## Prerequisites
+
+Before you begin, ensure you have the following installed:
+- Git
+- Python 3.10 or higher
+- pip
+- venv
+
+## Setting Up Your Development Environment
+
+### 1. Clone the Lunarverse Repository
+
+```bash
+git clone https://github.com/lunarbase-labs/lunarverse.git
+```
+
+### 2. Create a new branch
+
+```bash
+cd lunarverse
+git checkout -b component/your-component-name
+```
+
+### 3. Create a Python Virtual Environment
+
+```bash
+python -m venv venv
+source venv/bin/activate  # On Windows: venv\Scripts\activate
+```
+
+### 4. Install Lunarcore
+
+```bash
+pip install git+https://github.com/lunarbase-ai/lunar.git@develop#subdirectory=lunarbase/core
+```
+## Creating Your Component
+
+### 1. Component scaffolding
+
+Your component should follow this structure:
+
+```
+your_component_name/
+    ├── src/
+    │   └── your_component_name/
+    │       ├── __init__.py
+    ├── requirements.txt
+    ├── LICENSE
+    ├── tests/
+    │   └── ...
+    ├── setup.py
+    └── README.md
+```
+
+This is the skeleton structure for a new component:
+- `src/`: The source code directory;
+- `src/your_component_name/`: The component source code;
+- `src/your_component_name/__init__.py`: Should include a class that inherits from [LunarComponent](/docs/components/lunar-component) and implements the required methods.;
+- `requirements.txt`: Component dependencies;
+- `LICENSE`: Component license;
+- `tests/`: Test files;
+- `setup.py`: Component setup script;
+- `README.md`: Component documentation;
+
+### 2. Basic Component Structure
+
+A complete component implementation follows this pattern:
+
+```python
+from typing import Any, Dict
+from lunarcore.component import LunarComponent
+from lunarcore.types import DataType, ComponentGroup
+
+class YourComponent(
+    LunarComponent,
+    component_name="YourComponentName",
+    component_description="""Brief description of your component.""",
+    input_types={
+        "input": DataType.TEXT, # Or any other data type
+        ...
+    },
+    output_type=DataType.JSON, # Or any other data type
+    component_group=ComponentGroup.UTILS, # Or any other component group
+    # Add any configuration variables here
+    my_config_var="default_value", # Replace with your default value
+    # Add any environment variables here
+    my_env_var="$LUNARENV::MY_ENV_VAR",
+):
+    def __init__(self, **kwargs: Any):
+        super().__init__(configuration=kwargs)
+        # Initialize your component's dependencies here
+        self.service = None  # Replace with your service initialization
+
+    def run(self, input: str) -> dict:
+        """Process the input data and return output.
+        
+        Args:
+            input: The main input data
+            
+        Returns:
+            dict: Processed output data
+        """
+        
+        # Implement your component's main logic here
+        return {
+            "output": "processed_output",
+            "config_var": self.configuration.get("my_config_var"),
+            "env_var": self.configuration.get("my_env_var"),
+        }
+```
+
+### Understanding the Component Structure
+
+Components in the Lunar system follow a standardized structure that defines their behavior and functionality. The key aspects of this structure are:
+
+#### Metadata Configuration
+Components are defined with metadata that includes:
+- A unique `component_name` for referencing within the Lunar system
+- A `component_description` that provides a clear explanation of the component's purpose
+- `input_types` that specify the expected data types for input parameters
+- An `output_type` that defines the format of the component's output
+- A `component_group` that categorizes the component within the system
+- Configuration variables that can be set through environment variables using the `$LUNARENV::` prefix
+
+#### Initialization Process
+During initialization, components:
+- Inherit from the base `LunarComponent` class
+- Accept configuration parameters through keyword arguments
+- Set up any required dependencies or services
+- Initialize their internal state based on provided configuration
+
+#### Input Handling
+Components handle input data through:
+- Type-hinted parameters that match their defined input types
+- Validation against the component's metadata
+- Proper error handling for invalid or missing inputs
+
+#### Output Generation
+Components generate output by:
+- Returning processed results in a dictionary format
+- Ensuring output matches the defined output type
+- Including error information when applicable
+- Maintaining consistent output structure
+
+## Running your component locally
+
+Lunar components are designed to run in a containerized environment, but you can run them locally for development and testing. Its actually good practice to run them locally while you develop your component. 
+
+As components are python packages, you can install them in developing mode using:
+
+```bash
+cd your_component_name/
+pip install -e .
+```
+
+Now you can reference your component in any python script:
+
+```python
+from your_component_name import YourComponent
+
+component = YourComponent()
+
+result = component.run(input="test")
+```
+
+
+
+## Testing Your Component
+
+Testing is essential for ensuring the quality and reliability of your component. Components that have tests have more chances of being accepted into the Lunarverse, and will also help you catch errors early in the development process.
+
+### Writing Tests
+
+Lunar components use the `pytest` framework for testing. So you'll need to have `pytest` installed in your development environment.
+
+```bash
+pip install pytest
+```
+
+Now you can write unit tests in the `tests/` directory. Here's an example of a unit test:
+
+```python
+from your_component_name import YourComponent
+
+
+def test_run():
+    component = YourComponent()
+    result = component.run(input="test")
+    assert result["output"] == "processed_output"
+```
+All test files need to be prefixed with `test_`. and placed in the `tests/` directory of your component package
+
+### Running Tests
+
+You can run tests using:
+
+```bash
+python -m pytest your_component_name/tests/
+```
+
+## Creating a setup.py file
+
+A `setup.py` file is essential for packaging and distributing your component. It contains metadata about your package and specifies its dependencies. Here's how to create one:
+
+```python
+from setuptools import find_packages, setup
+
+# Global configuration
+AUTHOR = "<Your Name>"
+AUTHOR_EMAIL = "<Your Email>"
+LICENSE = "<Your License>"
+TEST_REQUIREMENTS = ["pytest"]
+EXTRAS_REQUIREMENTS = {
+    "dev": [
+        "pytest",
+    ],
+}
+
+REQUIREMENTS_FILE_PATH = "requirements.txt"
+
+
+class ComponentSetupGenerator:
+    """Generates setup configuration for a Lunar component"""
+    
+    def __init__(self, name, version, description):
+        """
+        Initialize the setup generator
+        
+        Args:
+            name: Component name
+            version: Component version
+            description: Component description
+        """
+        self.name = name
+        self.version = version
+        self.description = description
+
+    def generate(self):
+        """Generate the setup configuration dictionary"""
+        return {
+            "name": self.name,
+            "version": self.version,
+            "packages": find_packages(where="src"),
+            "package_dir": {"": "src"},
+            "install_requires": self._load_requirements(),
+            "tests_require": TEST_REQUIREMENTS,
+            "extras_require": EXTRAS_REQUIREMENTS,
+            "author": AUTHOR,
+            "author_email": AUTHOR_EMAIL,
+            "description": self.description,
+            "license": LICENSE,
+        }
+
+    def _load_requirements(self):
+        """Load requirements from requirements.txt"""
+        with open(REQUIREMENTS_FILE_PATH, "r") as file:
+            lines = file.read().splitlines()
+            return [line for line in lines if line and not line.startswith("#")]
+
+
+# Create and run the setup
+setup_generator = ComponentSetupGenerator(
+    name="your_component_name",  # 
+    version="0.1.0",  # Start with 0.1.0 for development
+    description="Brief description of your component",  # Add your description
+)
+
+setup(**setup_generator.generate())
+```
+
+## Submitting Your Changes
+
+### 1. Create a New Branch
+
+```bash
+git checkout -b components/your-component-name
+```
+
+### 2. Add Your Changes
+
+```bash
+git add components/your_component_name/
+git commit -m "Add new component: your-component-name"
+```
+
+### 3. Push Your Changes
+
+```bash
+git push origin components/your-component-name
+```
+
+### 4. Create a Pull Request
+
+1. Go to the [lunarverse repository](https://github.com/lunarbase-labs/lunarverse)
+2. Click the "New Pull Request" button
+3. Select your branch
+4. Fill out the PR template
+5. Submit your PR
+
+## Best Practices for Pull Requests
+
+1. **Branch Naming**
+   - Use `components/your-component-name` for new components
+   - Keep names descriptive and lowercase
+   - Use hyphens for readability
+
+2. **Pull Request Checklist**
+   - [ ] Component follows Lunar's structure
+   - [ ] All tests pass
+   - [ ] Documentation is complete
+   - [ ] Code follows PEP 8 style
+   - [ ] Includes unit tests
+   - [ ] Configuration is documented
+
+4. **PR Template**
+   ```markdown
+   # Component: [Your Component Name]
+
+   ## Description
+   [Brief description of your component and its functionality]
+
+   ## Testing
+   - [ ] Unit tests included
+   - [ ] Tests cover all major functionality
+
+   ## Configuration
+   - [ ] All configuration options documented
+   - [ ] Default values are appropriate
+   - [ ] Environment variables are properly handled
+
+   ## Compatibility
+   - [ ] Works with latest Lunarcore
+   - [ ] Follows component interface
+   - [ ] No breaking changes
+   ```
+
+5. **Review Process**
+   - PRs are reviewed by Lunar maintainers
+   - You may receive feedback
+   - Address all review comments
+   - Keep the PR updated with changes
+
+6. **Common Review Points**
+   - Code quality and style
+   - Test coverage
+   - Documentation completeness
+   - Error handling
+   - Component structure
+   - Performance considerations
+
+## After Your PR is Merged
+
+1. **Component Availability**
+   - Your component is now in Lunarverse
+   - Other developers can use it
+   - It's ready for production
+
+2. **Next Steps**
+   - Update the component documentation
+   - Add examples if needed
+   - Monitor for issues
+   - Consider adding more features
+
+3. **Component Maintenance**
+   - Keep dependencies up to date
+   - Fix any reported bugs
+   - Add new features as needed
+   - Maintain test coverage
+
+4. **Community Engagement**
+   - Respond to user questions
+   - Help other developers
+   - Contribute to Lunar documentation
+   - Participate in discussions
+
+## Getting Help****
+
+If you need help or have questions:
+- Check the [Lunar documentation](https://docs.lunarbase.ai)
+- Reach out to us at the Lunar Slack support channel
+
+
+## Example: Text Transformation Component
+
+Let's create a simple text transformation component that converts text to uppercase and adds optional formatting.
+
+### 1. Create Component Structure
+
+```bash
+mkdir -p src/text_uppercase
+mkdir -p tests
+```
+
+### 2. Create requirements.txt
+
+```text
+<No requirements for this package>
+```
+
+### 3. Create setup.py
+
+```python
+from setuptools import find_packages, setup
+
+# Global configuration
+AUTHOR = "<Your Name>"
+AUTHOR_EMAIL = "<Your Email>"
+LICENSE = "<Your License>"
+TEST_REQUIREMENTS = ["pytest"]
+EXTRAS_REQUIREMENTS = {
+    "dev": [
+        "pytest",
+    ],
+}
+
+REQUIREMENTS_FILE_PATH = "requirements.txt"
+
+class ComponentSetupGenerator:
+    def __init__(self, name, version, description):
+        self.name = name
+        self.version = version
+        self.description = description
+
+    def generate(self):
+        return {
+            "name": self.name,
+            "version": self.version,
+            "packages": find_packages(where="src"),
+            "package_dir": {"": "src"},
+            "install_requires": self._load_requirements(),
+            "tests_require": TEST_REQUIREMENTS,
+            "extras_require": EXTRAS_REQUIREMENTS,
+            "author": AUTHOR,
+            "author_email": AUTHOR_EMAIL,
+            "description": self.description,
+            "license": LICENSE,
+        }
+
+    def _load_requirements(self):
+        with open(REQUIREMENTS_FILE_PATH, "r") as file:
+            lines = file.read().splitlines()
+            return [line for line in lines if line and not line.startswith("#")]
+
+setup_generator = ComponentSetupGenerator(
+    name="text_uppercase",
+    version="0.1.0",
+    description="Converts text to uppercase with optional formatting",
+)
+
+setup(**setup_generator.generate())
+```
+
+### 4. Create Component Implementation
+
+```python
+from typing import Any, Dict
+from lunarcore.component import LunarComponent
+from lunarcore.types import DataType, ComponentGroup
+
+class TextUpperCase(
+    LunarComponent,
+    component_name="Text UpperCase",
+    component_description="Converts input text to uppercase with optional formatting.",
+    input_types={
+        "input": DataType.TEXT,
+    },
+    output_type=DataType.TEXT,
+    component_group=ComponentGroup.UTILS,
+    # Configuration options
+    prefix="",
+    suffix="",
+):
+    def __init__(self, **kwargs: Any):
+        super().__init__(configuration=kwargs)
+
+    def run(self, input: str) -> dict:
+        """
+        Convert input text to uppercase with optional prefix and suffix.
+        
+        Args:
+            input: The input text to transform
+            
+        Returns:
+            dict: Transformed text with prefix and suffix
+        """
+        
+        if not isinstance(input, str):
+            raise ValueError("Input must be a string")
+
+        result = input.upper()
+        
+        # Apply prefix and suffix if configured
+        prefix = self.configuration.get("prefix", "")
+        suffix = self.configuration.get("suffix", "")
+        
+        return {
+            "output": f"{prefix}{result}{suffix}",
+            "original_length": len(input),
+            "transformed_length": len(result)
+        }
+```
+
+### 5. Create Test File
+
+```python
+import pytest
+from text_uppercase import TextUpperCase
+
+def test_text_uppercase():
+    component = TextUpperCase()
+    result = component.run("hello")
+    assert result["output"] == "HELLO"
+    assert result["original_length"] == 5
+    assert result["transformed_length"] == 5
+
+def test_text_uppercase_with_config():
+    component = TextUpperCase(prefix="[UPPERCASE] ", suffix=" [END]")
+    result = component.run("hello")
+    assert result["output"] == "[UPPERCASE] HELLO [END]"
+    assert result["original_length"] == 5
+    assert result["transformed_length"] == 21
+
+def test_text_uppercase_invalid_input():
+    component = TextUpperCase()
+    with pytest.raises(ValueError):
+        component.run(123)  # Invalid input type
+```
+
+### 6. Run Tests
+
+```bash
+python -m pytest tests/
+```
+
+### 7. Install Component
+
+```bash
+pip install -e .
+```
+
+### 8. Use the Component
+
+```python
+from text_uppercase import TextUpperCase
+
+# Create component instance
+component = TextUpperCase(
+    prefix="[UPPERCASE] ",
+    suffix=" [END]"
+)
+
+# Run with input
+result = component.run("hello world")
+print(result)  # Output: {'output': '[UPPERCASE] HELLO WORLD [END]', 'original_length': 11, 'transformed_length': 31}
+```
+
+### 9. Submit to Lunarverse
+
+1. Create a new branch
+```bash
+git checkout -b components/text_uppercase
+```
+
+2. Add and commit changes
+```bash
+git add src/ tests/ setup.py requirements.txt
+```
+
+3. Push to GitHub
+```bash
+git push origin components/text_uppercase
+```
+
+4. Create PR
+- Go to [lunarverse repository](https://github.com/lunarbase-labs/lunarverse)
+- Click "New Pull Request"
+- Select your branch
+- Fill out the PR template with component details
+- Submit PR
+
+This example demonstrates a complete component development cycle following all the best practices and steps we've discussed. The component is simple yet complete, including:
+- Proper structure and organization
+- Input validation
+- Configuration options
+- Error handling
+- Comprehensive tests
+- Clear documentation
+- Proper setup configuration
+
+You can use this as a template for creating more complex components while maintaining the same structure and best practices.
