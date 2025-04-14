@@ -382,7 +382,7 @@ git push origin components/your-component-name
    - Contribute to Lunar documentation
    - Participate in discussions
 
-## Getting Help****
+## Getting Help
 
 If you need help or have questions:
 - Check the [Lunar documentation](https://docs.lunarbase.ai)
@@ -393,22 +393,26 @@ If you need help or have questions:
 
 Let's create a simple text transformation component that converts text to uppercase and adds optional formatting.
 
-### 1. Create Component Structure
+### 1. Create Basic Component Structure
 
 ```bash
+mkdir text_uppercase
 mkdir -p src/text_uppercase
+touch text_uppercase/src/text_uppercase/__init__.py
 mkdir -p tests
 ```
 
 ### 2. Create requirements.txt
 
 ```text
+# text_uppercase/requirements.txt
 <No requirements for this package>
 ```
 
-### 3. Create setup.py
+### 3. Create setup.py file
 
 ```python
+# text_uppercase/setup.py
 from setuptools import find_packages, setup
 
 # Global configuration
@@ -462,6 +466,7 @@ setup(**setup_generator.generate())
 ### 4. Create Component Implementation
 
 ```python
+# text_uppercase/src/text_uppercase/__init__.py
 from typing import Any, Dict
 from lunarcore.component import LunarComponent
 from lunarcore.types import DataType, ComponentGroup
@@ -512,6 +517,7 @@ class TextUpperCase(
 ### 5. Create Test File
 
 ```python
+# text_uppercase/tests/test_text_uppercase.py
 import pytest
 from text_uppercase import TextUpperCase
 
@@ -535,17 +541,19 @@ def test_text_uppercase_invalid_input():
         component.run(123)  # Invalid input type
 ```
 
-### 6. Run Tests
+### 6. Install Component
+
+```bash
+cd text_uppercase
+pip install -e .
+```
+
+### 7. Run Tests
 
 ```bash
 python -m pytest tests/
 ```
 
-### 7. Install Component
-
-```bash
-pip install -e .
-```
 
 ### 8. Use the Component
 
@@ -562,8 +570,17 @@ component = TextUpperCase(
 result = component.run("hello world")
 print(result)  # Output: {'output': '[UPPERCASE] HELLO WORLD [END]', 'original_length': 11, 'transformed_length': 31}
 ```
+### 9. Created README.md documentation
 
-### 9. Submit to Lunarverse
+```markdown
+# text_uppercase/README.md
+# TextUpperCase
+
+A simple text transformation component that converts text to uppercase with optional prefix and suffix.
+(...)
+```
+
+### 10. Submit to Lunarverse
 
 1. Create a new branch
 ```bash
@@ -587,13 +604,4 @@ git push origin components/text_uppercase
 - Fill out the PR template with component details
 - Submit PR
 
-This example demonstrates a complete component development cycle following all the best practices and steps we've discussed. The component is simple yet complete, including:
-- Proper structure and organization
-- Input validation
-- Configuration options
-- Error handling
-- Comprehensive tests
-- Clear documentation
-- Proper setup configuration
-
-You can use this as a template for creating more complex components while maintaining the same structure and best practices.
+This example demonstrates a complete component development cycle following all the best practices and steps we've discussed. You can use this as a template for creating more complex components while maintaining the same structure and best practices.

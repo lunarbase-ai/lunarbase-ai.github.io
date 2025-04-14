@@ -150,39 +150,4 @@ class TextProcessor(LunarComponent,
         return result
 ```
 
-This example demonstrates several important aspects of component development:
-
-1. **Basic Structure**
-   - Proper class inheritance from `LunarComponent`
-   - Required parameters in class definition
-   - Clear component description
-   - Configuration parameters passed as kwargs
-
-2. **Configuration**
-   - Configuration parameters as kwargs in class definition
-   - Accessing configuration through `self.configuration`
-   - Default values for configuration
-   - Type hints for configuration parameters
-
-3. **Input Validation**
-   - Validation of process type
-   - Length validation with configuration
-   - Whitespace handling
-
-4. **Error Handling**
-   - Clear error messages
-   - Proper exception raising
-   - Input validation before processing
-
-5. **Documentation**
-   - Docstring with Args, Returns, and Raises sections
-   - Clear parameter descriptions
-   - Explanation of functionality
-
-6. **Best Practices**
-   - Type hints for all parameters
-   - Proper initialization of class variables
-   - Clean code organization
-   - Defensive programming
-
 This component can be used in agentic workflows for text processing tasks, with the ability to customize its behavior through configuration parameters. The configuration parameters are passed as kwargs in the class definition and can be accessed through `self.configuration` in the `__init__` method.
