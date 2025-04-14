@@ -7,4 +7,4 @@ Where to start? Here are a few options:
 
 - Jump right in with a [quick start](./quickstart.md)
 - Be methodical and learn about the [Lunar concepts](./concepts.md) first
-- Get immersed into the lunarverse by exploring the [Lunar component library](./component.md)
+- Get immersed into the lunarverse by exploring the [Lunar component library](./components/intro.md)

@@ -1,6 +1,6 @@
 # Lunar workflows
 
-Workflows are the fundamental units in Lunar, representing tasks to be performed using one or more [Lunar Components](./component.md). They are constructed by linking various components, creating a data flow that culminates in the desired outcome. You are free to assemble components together, creating a pipeline that will at the very end give you the results you need, efficiently and effectively.
+Workflows are the fundamental units in Lunar, representing tasks to be performed using one or more [Lunar Components](./components/intro.md). They are constructed by linking various components, creating a data flow that culminates in the desired outcome. You are free to assemble components together, creating a pipeline that will at the very end give you the results you need, efficiently and effectively.
 
 Conceptually, a workflow can be interpreted as a directed acyclic graph of components connected by dependencies (edges). Think of a workflow as a flowchart where each step (or component) is connected by arrows (dependencies). This flowchart doesn't loop back on itself, meaning it moves in one direction from start to finish. Components further down the chart depend on the results of components earlier in the chart, ensuring a logical and sequential flow of data and tasks.
 
